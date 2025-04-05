@@ -1,0 +1,388 @@
+let characters = [];
+let visibleCharacters = [];
+let target = null;
+let queryCount = 0;
+let queryHistory = [];
+let promptCategory = null;
+let eliminatedCharacters = new Set();
+let hasWon = false;
+
+
+
+const fields = [
+  "LoginAccount", "Hostname", "IP", "VisitedDomains", "FilesDownloaded", "ColorScheme",
+  "ProcessesRun", "SuspiciousActivity", "Species", "Hair", "Accessory"
+];
+const operators = ["==", "!=", "contains", "!contains", "has", "has_any"];
+
+const gameModes = {
+  normal: [
+    "Species", "Hair", "Accessory", "ColorScheme",
+    "VisitedDomains", "FilesDownloaded", "Hostname", "IP", "SuspiciousActivity", "LoginAccount"
+  ],
+  image: ["Species", "Hair", "Accessory", "ColorScheme"],
+  data: ["VisitedDomains", "FilesDownloaded", "Hostname", "IP", "SuspiciousActivity", "LoginAccount"],
+  prompt: []
+};
+
+function selectRandomPromptCategory() {
+  const allFields = [...new Set([...gameModes.image, ...gameModes.data])];
+  const chosen = allFields[Math.floor(Math.random() * allFields.length)];
+  gameModes.prompt = [chosen];
+  return chosen;
+}
+
+function validateQuery(query, mode, promptCategory) {
+    const errors = [];
+    if (!query.toLowerCase().trim().startsWith("where ")) {
+      errors.push("Query must start with 'where'.");
+    }
+    if (/[^=!<>]=[^=]/.test(query)) {
+      errors.push("Use '==' for comparisons, not '='.");
+    }
+    if (mode === "prompt" && promptCategory && !query.includes(promptCategory)) {
+      errors.push(`You may only use: ${promptCategory}`);
+    }
+    return errors;
+  }
+  
+
+async function loadCharacters() {
+  const res = await fetch("data/characters.json");
+  const allCharacters = await res.json();
+  characters = allCharacters.sort(() => 0.5 - Math.random()).slice(0, 16);
+  visibleCharacters = [...characters];
+  eliminatedCharacters = new Set();
+  hasWon = false;
+
+
+  target = characters[Math.floor(Math.random() * characters.length)];
+  document.getElementById("targetDisplay").textContent = `Who is the suspect?`;
+  document.getElementById("targetImg").src = "images/target-placeholder.png";
+  document.querySelectorAll(".character-card").forEach(card => {
+    card.style.boxShadow = "none";
+  });
+  
+  queryCount = 0;
+  queryHistory = [];
+  promptCategory = null;
+  document.getElementById("queryCounter").textContent = `🔁 Queries Used: ${queryCount}`;
+  document.getElementById("celebration").style.display = "none";
+  document.getElementById("queryFeedback").innerText = "";
+  document.getElementById("queryLog").innerHTML = "<strong>Query History:</strong><br/>";
+  document.getElementById("kqlInput").value = "";
+
+  renderCharacters(characters, visibleCharacters);
+  setupKQLKeyboard();
+  
+
+}
+
+function setupKQLKeyboard() {
+  const fieldSelect = document.getElementById("fieldSelect");
+  const opSelect = document.getElementById("opSelect");
+  const valInput = document.getElementById("valInput");
+
+  fieldSelect.innerHTML = fields.map(f => `<option value="${f}">${f}</option>`).join("");
+  opSelect.innerHTML = operators.map(o => `<option value="${o}">${o}</option>`).join("");
+
+  document.getElementById("addClause").onclick = () => {
+    const field = fieldSelect.value;
+    const op = opSelect.value;
+    const val = valInput.value.trim();
+    if (!field || !op || !val) return;
+
+    let clause = `where ${field} ${op} "${val}"`;
+    document.getElementById("kqlInput").value = clause;
+  };
+}
+
+document.getElementById("modeSelect").addEventListener("change", () => {
+  const mode = document.getElementById("modeSelect").value;
+  const promptBox = document.getElementById("promptInstruction");
+
+  if (mode === "prompt") {
+    promptCategory = selectRandomPromptCategory();
+    promptBox.style.display = "block";
+    promptBox.innerHTML = `🎯 Use only this filter category: <strong>${promptCategory}</strong>`;
+  } else {
+    promptCategory = null;
+    promptBox.style.display = "none";
+    promptBox.innerHTML = "";
+  }
+});
+
+
+function runQuery() {
+    const query = document.getElementById("kqlInput").value;
+    const mode = document.getElementById("modeSelect").value;
+  
+    if (!query.trim()) return;
+  
+    if (mode === "prompt" && !promptCategory) {
+      promptCategory = selectRandomPromptCategory();
+      document.getElementById("queryFeedback").innerText =
+        `🎯 Use only this filter category: ${promptCategory}`;
+    }
+  
+    const errors = validateQuery(query, mode, promptCategory);
+    if (errors.length > 0) {
+      document.getElementById("queryFeedback").innerText = `❌ ${errors.join("\n")}`;
+      document.getElementById("queryFeedback").style.color = "red";
+      return;
+    }
+  
+    queryHistory.push(query);
+    updateQueryLog();
+  
+    const targetMatches = checkQueryAgainstTarget(query); // ✅ fixed: now returns true/false
+    if (targetMatches) {
+        document.getElementById("queryFeedback").innerText =
+          "✅ Yes! You're one step closer to finding the attacker.";
+        document.getElementById("queryFeedback").style.color = "green";
+      } else {
+        document.getElementById("queryFeedback").innerText =
+          "❌ Hmm... That doesn't seem to help.";
+        document.getElementById("queryFeedback").style.color = "red";
+      }
+      
+  
+    if (targetMatches) {
+        // Filter characters that match the query AND are not already eliminated
+        const matching = characters.filter(c => evaluateQuery(query, c));
+        visibleCharacters = characters.filter(c => !eliminatedCharacters.has(c.Name) && matching.includes(c));
+      
+        // Mark everyone else as eliminated
+        characters.forEach(c => {
+          if (!matching.includes(c)) eliminatedCharacters.add(c.Name);
+        });
+      }
+       else {
+      // ❌ Not helpful → no change to visibleCharacters
+      document.getElementById("queryFeedback").innerText =
+        "❌ Hmm... That doesn't seem to help.";
+      document.getElementById("queryFeedback").style.color = "red";
+    }
+  
+    queryCount++;
+    document.getElementById("queryCounter").textContent = `🔁 Queries Used: ${queryCount}`;
+    document.getElementById("kqlInput").value = "";
+  
+    renderCharacters(characters, visibleCharacters);
+    checkWinCondition(query);
+  }
+  
+  
+  function evaluateQuery(query, char) {
+    if (!query.toLowerCase().trim().startsWith("where")) return true;
+    const logic = query.trim().slice(5).trim();
+  
+    try {
+      const filterFunc = new Function("char", `
+        const val = key => {
+          const v = char[key];
+          return typeof v === 'string' ? v.toLowerCase() : v;
+        };
+        const includesInsensitive = (arr, str) =>
+          (arr || []).some(item => (item || '').toLowerCase() === str.toLowerCase());
+  
+        return ${logic
+          .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
+          .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
+          .replace(/(\w+)\s+has\s+"([^"]+)"/gi, 'includesInsensitive(char.$1, "$2")')
+          .replace(/(\w+)\s+has_any\s+\[(.*?)\]/gi, '(($2).split(",").map(s => s.trim().replaceAll("\\"","")).some(v => includesInsensitive(char.$1, v)))')
+          .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
+          .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
+          .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
+        };
+      `);
+      return filterFunc(char);
+    } catch (e) {
+      console.warn("Query evaluation error:", e);
+      return true;
+    }
+  }
+  
+
+  function updateQueryLog() {
+    const logDiv = document.getElementById("queryLog");
+    logDiv.innerHTML = "<strong>Query History:</strong><br/>" +
+      queryHistory.map((q, i) => {
+        const isMatch = checkQueryAgainstTarget(q);
+        const bgColor = isMatch ? "#d4f4dd" : "#f8d7da"; // light green or red
+        const border = isMatch ? "1px solid #5cb85c" : "1px solid #d9534f";
+        return `
+          <div style="
+            background: ${bgColor};
+            border: ${border};
+            color: black;
+            padding: 4px;
+            margin-bottom: 2px;
+          ">
+            #${i + 1}: ${q}
+          </div>
+        `;
+      }).join("");
+  }
+  
+  
+
+function queryCharacters(query) {
+  if (!query.trim().toLowerCase().startsWith("where")) return characters;
+  const logic = query.trim().slice(5).trim();
+
+  return characters.filter(char => {
+    try {
+      const filterFunc = new Function("char", `
+        const val = key => {
+          const v = char[key];
+          return typeof v === 'string' ? v.toLowerCase() : v;
+        };
+        const includesInsensitive = (arr, str) =>
+          (arr || []).some(item => (item || '').toLowerCase() === str.toLowerCase());
+
+        return ${logic
+          .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
+          .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
+          .replace(/(\w+)\s+has\s+"([^"]+)"/gi, 'includesInsensitive(char.$1, "$2")')
+          .replace(/(\w+)\s+has_any\s+\[(.*?)\]/gi, '(($2).split(",").map(s => s.trim().replaceAll("\\"","")).some(v => includesInsensitive(char.$1, v)))')
+          .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
+          .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
+          .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
+        };
+      `);
+      return filterFunc(char);
+    } catch (e) {
+      console.error("Query parsing error:", e);
+      return true;
+    }
+  });
+}
+
+function renderCharacters(all, visible) {
+    const grid = document.getElementById("characters");
+    grid.innerHTML = "";
+  
+    const mode = document.getElementById("modeSelect").value;
+  
+    all.forEach(char => {
+      const card = document.createElement("div");
+      card.className = "character-card";
+      card.style.fontFamily = "Arial, sans-serif";
+      card.style.fontSize = "0.75rem";
+  
+      if (eliminatedCharacters.has(char.Name)) {
+        card.style.opacity = 0.2;
+        card.style.filter = "grayscale(100%)";
+      } else {
+        card.style.opacity = 1;
+        card.style.filter = "none";
+      }
+  
+      if (char.Name === target.Name && hasWon) {
+        card.style.boxShadow = "0 0 15px 5px limegreen";
+        card.classList.add("wiggle"); // 🎉 Add wiggle animation
+      }
+  
+      const img = document.createElement("img");
+      img.src = char.Image;
+      img.alt = char.Name;
+  
+      const info = document.createElement("div");
+      let dataHTML = `<strong>${char.Name}</strong><br/>`;
+  
+      if (mode !== "image") {
+        dataHTML += `
+          <strong>Hostname:</strong> ${char.Hostname}<br/>
+          <strong>IP:</strong> ${char.IP}<br/>
+          <strong>Login:</strong> ${char.LoginAccount}<br/>
+          <strong>Visited:</strong> ${char.VisitedDomains?.join(", ")}<br/>
+          <strong>Files:</strong> ${char.FilesDownloaded?.join(", ")}<br/>
+          <strong>Activity:</strong> ${char.SuspiciousActivity}<br/>
+          <strong>Processes:</strong> ${char.ProcessesRun}<br/>
+          <span style="display:none"><strong>Species:</strong> ${char.Species}</span>
+          <span style="display:none"><strong>Hair:</strong> ${char.Hair}</span>
+          <span style="display:none"><strong>Glasses:</strong> ${char.Glasses}</span>
+          <span style="display:none"><strong>Accessory:</strong> ${char.Accessory}</span>
+          <span style="display:none"><strong>Hat:</strong> ${char.Hat}</span>
+        `;
+      }
+  
+      info.innerHTML = dataHTML;
+      if (mode !== "data") card.appendChild(img);
+      card.appendChild(info);
+      grid.appendChild(card);
+    });
+  }
+  
+
+function checkQueryAgainstTarget(query) {
+    const logic = query.trim().slice(5).trim();
+    try {
+      const evalTarget = new Function("char", `
+        const val = key => {
+          const v = char[key];
+          return typeof v === 'string' ? v.toLowerCase() : v;
+        };
+        const includesInsensitive = (arr, str) =>
+          (arr || []).some(item => (item || '').toLowerCase() === str.toLowerCase());
+  
+        return ${logic
+          .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
+          .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
+          .replace(/(\w+)\s+has\s+"([^"]+)"/gi, 'includesInsensitive(char.$1, "$2")')
+          .replace(/(\w+)\s+has_any\s+\[(.*?)\]/gi, '(($2).split(",").map(s => s.trim().replaceAll("\\"","")).some(v => includesInsensitive(char.$1, v)))')
+          .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
+          .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
+          .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
+      };
+      `);
+      return evalTarget(target); // ✅ Return result of test on target
+    } catch (e) {
+      console.warn("Unable to evaluate query against target.", e);
+      return false;
+    }
+  }
+  ;
+
+
+  function checkWinCondition(query) {
+    const targetName = target.Name.toLowerCase();
+    const isExactMatch = query.toLowerCase().includes('name ==') && query.toLowerCase().includes(`"${targetName}"`);
+    const containsMatch = query.toLowerCase().includes('name contains') && targetName.includes(getValueFromQuery(query));
+  
+    if (isExactMatch) {
+      hasWon = true;
+      document.getElementById("celebration").style.display = "block";
+      const audio = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
+      audio.play();
+      if (window.confetti) {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      }
+      document.getElementById("targetImg").src = target.Image;
+      document.getElementById("queryFeedback").innerText =
+        `🎉 You caught ${target.Name}! It took you ${queryCount} queries.`;
+        const nameReveal = document.getElementById("targetNameReveal");
+        nameReveal.textContent = `🎯 ${target.Name}`;
+        nameReveal.style.display = "block";
+         
+      document.getElementById("queryFeedback").style.color = "green";
+      renderCharacters(characters, visibleCharacters); // ✅ Update to show glow + wiggle
+    }
+  }
+  
+
+  
+  function getValueFromQuery(query) {
+    const match = query.match(/name\s+contains\s+"([^"]+)"/i);
+    return match ? match[1].toLowerCase() : "";
+  }
+  
+  
+
+window.onload = () => {
+  loadCharacters();
+}
+
+promptBox.style.opacity = "1"; // when showing
+promptBox.style.opacity = "0"; // when hiding
