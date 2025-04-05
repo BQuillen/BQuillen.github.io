@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
     font-family: 'Nunito', sans-serif;
     background: #042f4b;
@@ -8,22 +13,28 @@ body {
   
   .layout {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    align-items: stretch;
+    width: 100%;
   }
   
+  
   .left-panel,
-.right-panel {
-  flex: 0 0 200px; /* makes them fixed-size on wide screens */
-  min-width: 150px;
-  max-width: 240px;
-  padding: 1rem;
-  font-size: 0.65rem;
-  background: linear-gradient(to bottom, #cc5500, hwb(33 20% 0%));
-  color: #fff;
-  overflow-y: auto; /* ✅ Enable scrolling */
-  max-height: 100vh; /* ✅ Make them stay within screen */
-  box-sizing: border-box;
-}
+  .right-panel {
+    flex: 0 0 200px;
+    min-width: 150px;
+    max-width: 240px;
+    padding: 1rem;
+    font-size: 0.65rem;
+    background: linear-gradient(to bottom, #cc5500, hwb(33 20% 0%));
+    color: #fff;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* 🟧 NEW */
+    display: flex;
+    flex-direction: column;
+  }
+  
 
   
   
@@ -42,6 +53,7 @@ body {
     overflow-y: auto;
     background-color: #063b5f; /* Slightly lighter than side panels */
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    min-width: 0;
   }  
   
   h1 {
@@ -75,23 +87,28 @@ body {
   .query-box button:hover {
     background-color: #cc4400;
   }
+
+  .query-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .query-section input,
+  .query-section select,
+  .query-section button {
+    flex: 1 1 100%;
+    max-width: 300px;
+  }
+  
   
   .mode-box {
     margin: 1rem 0;
     font-size: 0.7rem;
   }
   
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    padding: 1rem;
-    justify-items: center;
-    align-items: start;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+  
   
   /* Adjust character card size and layout */
   .character-card {
@@ -99,7 +116,8 @@ body {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 0.8rem;
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
     text-align: left;
     font-family: Arial, sans-serif;
     font-size: 0.75rem;
@@ -114,6 +132,7 @@ body {
     height: auto;
     border-radius: 6px;
     margin-bottom: 0.5rem;
+    object-fit: cover;
   }
   
   /* Optional: Hover effect */
@@ -193,6 +212,18 @@ body {
       padding: 1rem;
     }
   }
+
+  @media (max-width: 480px) {
+    .character-card {
+      font-size: 0.6rem;
+    }
+  
+    #queryFeedback,
+    #queryLog {
+      font-size: 0.75rem;
+    }
+  }
+  
   
   #promptInstruction {
     font-size: 0.9rem;
@@ -204,4 +235,37 @@ body {
     transition: opacity 0.3s ease;
 
   }
+  
+  #characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+
+  
+  
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+  
+    .left-panel,
+    .right-panel {
+      width: 100%;
+      max-height: none;
+      order: 0;
+    }
+  
+    main {
+      order: 1;
+      width: 100%;
+    }
+  }
+  
   
