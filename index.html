@@ -3,17 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guess QL</title>
+  <title>KQ Who?</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+  <nav class="main-navbar">
+    <div class="nav-title">KQ Who?</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="instructions.html">Instructions</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+  
   <div class="layout">
 
     <aside class="left-panel">
-      <h2>Target</h2>
+      <h2 class="heading" style="text-align: center;">Target</h2>
       <img id="targetImg" src="https://via.placeholder.com/150" alt="Target Character" />
       <p id="targetDisplay">🎯 Target: Loading...</p> <!-- removing this breaks everything for some reason -->
       <p id="targetNameReveal" style="display: none; font-weight: bold; text-align: center;"></p>
@@ -33,7 +42,7 @@
 
     <main>
         <div class="banner">
-            <h1>👾 Guess QL 👾</h1>
+            <h1>👾 KQ Who? 👾</h1>
           </div>
           
 
@@ -77,19 +86,9 @@
     </main>
 
     <aside class="right-panel">
-      <h4>🧠 Available Filters:</h4>
-      <ul>
-        <li>Species</li>
-        <li>Hair</li>
-        <li>Accessory</li>
-        <li>ColorScheme</li>
-        <li>VisitedDomains</li>
-        <li>FilesDownloaded</li>
-        <li>SuspiciousActivity</li>
-        <li>Hostname</li>
-        <li>LoginAccount</li>
-        <li>IP</li>
-        <li>ProcessesRun</li>
+      <h4 class="heading">🧠 Available Filters:</h4>
+      <ul id="filterList">
+        
       </ul>
     </aside>
   </div>
