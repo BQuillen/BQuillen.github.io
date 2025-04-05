@@ -781,5 +781,22 @@
         "uploaded memory dump to unknown server"
       ],
       "Image": "images/zelle_brainstorm.png"
-    }
+    },
+  {
+  "Name": "Amber Blueberry",
+  "Species": "Human",
+  "Hair": "blue",
+  "Accessory": ["Phone", "drink", "bracelet", "hat"],
+  "ColorScheme": ["blue", "purple"],
+  "VisitedDomains": ["shoezshoezshoez.ai", "coffeefindr.io", "berryblogger.com"],
+  "FilesDownloaded": ["code_snippets.txt", "canva_guide.pdf"],
+  "Hostname": "b7u3b3rry-LAPTOP",
+  "IP": "10.0.55.24",
+  "LoginAccount": "a.shoeberry",
+  "ProcessesRun": ["teams.exe", "chrome.exe", "vscode.exe"],
+  "SuspiciousActivity": false,
+  "Image": "images/amber_blueberry.png"
+}
+  
+
   ]
