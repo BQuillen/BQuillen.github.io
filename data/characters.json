@@ -796,7 +796,38 @@
   "ProcessesRun": ["teams.exe", "chrome.exe", "vscode.exe"],
   "SuspiciousActivity": false,
   "Image": "images/amber_blueberry.png"
+},
+  {
+  "Name": "Casey Xeven",
+  "Species": "raccoon",
+  "Hair": "gray",
+  "Accessory": ["Hat", "bandana", "scarf", "goggles", "glasses", "belt", "map"],
+  "ColorScheme": ["brown", "orange"],
+  "VisitedDomains": ["mapquester.io", "forestfacts.org", "kc7cyber.com"],
+  "FilesDownloaded": ["expedition_log.pdf", "encrypted_trail.kml"],
+  "Hostname": "c453y7-mobile",
+  "IP": "10.18.34.77",
+  "LoginAccount": "cxeven@outlook.com",
+  "ProcessesRun": ["map_reader.exe", "compass_sim.py", "trailScanner.sh"],
+  "SuspiciousActivity": "Unusual access to GPS tracking files at 3AM",
+  "Image": "images/casey_xeven.png"
+},
+  {
+  "Name": "Juno Quibble",
+  "Species": "raccoon",
+  "Hair": ["black", "white"],
+  "Accessory": ["bandana", "glasses", "drink"],
+  "ColorScheme": ["gray", "blue"],
+  "VisitedDomains": ["nocturnalnews.net", "midnightmunchies.org", "cryptopuzzle.fun"],
+  "FilesDownloaded": ["secret_snacks_list.pdf", "encrypted_notes.kdbx"],
+  "Hostname": "jun0qu1bbl3-laptop",
+  "IP": "10.42.88.21",
+  "LoginAccount": "jquibble@cryptofun.io",
+  "ProcessesRun": ["snackScraper.py", "midnightSync.exe", "decoyProtocol.sh"],
+  "SuspiciousActivity": "Automated login attempts from remote IPs during restricted hours",
+  "Image": "juno_quibble.png"
 }
-  
+
+
 
   ]
