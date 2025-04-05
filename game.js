@@ -426,3 +426,56 @@ function checkQueryAgainstTarget(query) {
 window.onload = () => {
   loadCharacters();
 }
+
+const filterData = {
+  Species: ["human", "lizard", "bird", "raccoon", "monster", "zombie", "cat", "dog", "robot", "crab", "ferret"],
+  Hair: ["black", "white", "brown", "blue", "green", "pink", "etc."],
+  Accessory: ["glasses", "backpack", "drink", "food", "headphones", "watch", "etc."],
+  ColorScheme: ["black", "white", "gray", "red", "blue", "orange", "etc."],
+  Hostname: ["computer", "device", "laptop", "mobile"],
+  IP: ["10.0.0.X", "172.16.X.X", "192.168.X.X"],
+  VisitedDomains: ["sketchydocs.io", "raisinkanes.com", "phishynews.net", "kc7cyber.com", "etc."],
+  FilesDownloaded: ["Invoice.docx", "Resume.pdf", "RansomNote.txt", "etc."],
+  SuspiciousActivity: ["clicked phishing ad", "malware download", "unauthorized login", "etc."],
+  LoginAccount: ["related to their name", "jdoe", "admin", "guest", "itadmin"]
+};
+
+let activeAccordion = null;
+
+function createFilterAccordion() {
+  const list = document.getElementById("filterList");
+  list.innerHTML = "";
+
+  Object.entries(filterData).forEach(([filterName, values]) => {
+    const item = document.createElement("li");
+    item.className = "filter-item";
+
+    const header = document.createElement("div");
+    header.className = "filter-header";
+    header.innerText = filterName;
+
+    const content = document.createElement("div");
+    content.className = "filter-content";
+    content.style.display = "none"; // 🔒 Start collapsed
+    content.innerHTML = values.map(v => `<div>${v}</div>`).join("");
+
+    header.onclick = () => {
+      const isOpen = content.style.display === "block";
+
+      // Collapse all
+      document.querySelectorAll(".filter-content").forEach(c => (c.style.display = "none"));
+
+      // Expand current if it was closed
+      if (!isOpen) {
+        content.style.display = "block";
+      }
+    };
+
+    item.appendChild(header);
+    item.appendChild(content);
+    list.appendChild(item);
+  });
+}
+
+
+window.addEventListener("DOMContentLoaded", createFilterAccordion);
