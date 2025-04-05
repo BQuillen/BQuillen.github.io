@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess QL</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="left-panel">
+      <h2>Target</h2>
+      <img id="targetImg" src="https://via.placeholder.com/150" alt="Target Character" />
+      <p id="targetDisplay">🎯 Target: Loading...</p> <!-- removing this breaks everything for some reason -->
+      <p id="targetNameReveal" style="display: none; font-weight: bold; text-align: center;"></p>
+
+    
+      
+
+      <div id="queryLog" style="
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-family: 'Courier New', Courier, monospace;
+      max-height: 500px;
+      overflow-y: auto;
+      padding-right: 6px;
+    "></div>
+        </aside>
+
+    <main>
+        <div class="banner">
+            <h1>👾 Guess QL 👾</h1>
+          </div>
+          
+
+          <div class="query-box">
+            <input type="text" id="kqlInput" placeholder='e.g., where Species == "Raccoon"' />
+            <button onclick="runQuery()">Run Query</button>
+            <p id="winConditionHint" style="font-size: 0.75rem; color: white; text-align: center; margin-top: 0.5rem;">
+                🕵️ To catch the attacker, use: <code>where Name == "Full Name"</code>
+              </p>
+              
+              
+          </div>
+          <div id="promptInstruction" style="display: none; margin-top: 1rem; font-weight: bold; color: gold; text-align: center;"></div>
+
+      <div id="kqlKeyboard" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <select id="fieldSelect"></select>
+        <select id="opSelect"></select>
+        <input type="text" id="valInput" placeholder="Value..." />
+        <button id="addClause">🧠 Build Query</button>
+      </div>
+
+      <div class="mode-box">
+        <label>Game Mode:
+          <select id="modeSelect">
+            <option value="normal">Normal</option>
+            <option value="image">Image Only</option>
+            <option value="data">Data Only</option>
+            <option value="prompt">Prompt Challenge</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="queryFeedback" style="margin-top: 1rem; font-weight: bold;"></div>
+
+      <div class="new-round">
+        <button onclick="loadCharacters()">🔄 New Round</button>
+      </div>
+
+      <div id="queryCounter" style="margin-top: 1rem; font-size: 0.75rem;"></div>
+      <div id="characters" class="grid"></div>
+    </main>
+
+    <aside class="right-panel">
+      <h4>🧠 Available Filters:</h4>
+      <ul>
+        <li>Species</li>
+        <li>Hair</li>
+        <li>Accessory</li>
+        <li>ColorScheme</li>
+        <li>VisitedDomains</li>
+        <li>FilesDownloaded</li>
+        <li>SuspiciousActivity</li>
+        <li>Hostname</li>
+        <li>LoginAccount</li>
+        <li>IP</li>
+        <li>ProcessesRun</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div id="celebration" style="display:none; text-align:center; margin-top:1rem;">
+    <h2 style="color:green;">🎉 You found the attacker!</h2>
+    <button onclick="loadCharacters()">🔄 New Round</button>
+  </div>
+
+
+  <script src="utils/queryValidator.js"></script>
+  <script src="utils/randomFilter.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

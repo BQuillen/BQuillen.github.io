@@ -1,0 +1,785 @@
+[
+  {
+    "Name": "Ricky Raccoon",
+    "Species": "Raccoon",
+    "Hair": "gray, orange",
+    "Accessory": ["backpack", "hat", "glasses"],
+    "ColorScheme": [ "gray", "orange"],
+    "VisitedDomains": ["sketchydocs.io", "raisinkanes.com"],
+    "FilesDownloaded": ["tool.exe"],
+    "Hostname": "jojo-lab13",
+    "IP": "10.0.1.3",
+    "LoginAccount": "raccsonraccs",
+    "ProcessesRun": ["chrome.exe"],
+    "SuspiciousActivity": ["clicked phishing ad"],
+    "Image": "images/rickyraccoon.png"
+  },
+  {
+    "Name": "Dexter Donut",
+    "Species": "food",
+    "Hair": "none",
+    "Accessory": ["cape", "glasses", "usb", "flashdrive", "cape"],
+    "ColorScheme": ["pink", "brown"],
+    "VisitedDomains": ["donutmunch.com", "torforum.net"],
+    "FilesDownloaded": ["exploit_kit.zip"],
+    "Hostname": "sweetcore",
+    "IP": "10.0.2.17",
+    "LoginAccount": "dextr",
+    "ProcessesRun": ["node.exe"],
+    "SuspiciousActivity": ["ran credential dumper"],
+    "Image": "images/dexterdonut.png"
+  },
+  {
+    "Name": "Luna Meowskers",
+    "Species": "Cat",
+    "Hair": "white",
+    "Accessory": ["necklace", "earring", "drink", "pen", "scarf"],
+    "ColorScheme": ["gray", "orange"],
+    "VisitedDomains": ["funzone.io", "puzzlehub.net"],
+    "FilesDownloaded": ["crossword_cheats.txt"],
+    "Hostname": "meow-lab7",
+    "IP": "10.0.2.14",
+    "LoginAccount": "whiskers",
+    "ProcessesRun": ["firefox.exe"],
+    "SuspiciousActivity": ["downloaded cheat tool"],
+    "Image": "images/lunameowskers.png"
+  },
+  {
+    "Name": "Zara Zombini",
+    "Species": "Zombie",
+    "Hair": "green",
+    "Accessory": ["bracelet", "hat", "necklace", "earring"],
+    "ColorScheme": ["gray", "green"],
+    "VisitedDomains": ["brainhungry.org"],
+    "FilesDownloaded": ["malware_payload.doc"],
+    "Hostname": "undead-host1",
+    "IP": "10.0.3.6",
+    "LoginAccount": "zbrain",
+    "ProcessesRun": ["cmd.exe"],
+    "SuspiciousActivity": ["sent phishing emails"],
+    "Image": "images/zarazombie.png"
+  },
+
+
+  {
+    "Name": "Gloop Goozy",
+    "Species": "monster",
+    "Hair": "purple",
+    "Accessory": ["belt", "glasses", "tablet"],
+    "ColorScheme": ["purple", "blue"],
+    "VisitedDomains": ["weirdnet.biz", "slimesearch.io"],
+    "FilesDownloaded": ["slimelog.txt"],
+    "Hostname": "goo-core",
+    "IP": "10.0.4.2",
+    "LoginAccount": "gloop",
+    "ProcessesRun": ["notepad.exe"],
+    "SuspiciousActivity": ["visited suspicious domains"],
+    "Image": "images/gloopgoozy.png"
+  },
+  
+  {
+    "Name": "Terry Terrible",
+    "Species": "monster",
+    "Hair": "black",
+    "Accessory": ["scarf", "glasses", "horns"],
+    "ColorScheme": ["yellow", "brown"],
+    "VisitedDomains": ["underseanet.net"],
+    "FilesDownloaded": ["aquatic_log.csv"],
+    "Hostname": "terr-5",
+    "IP": "10.0.6.3",
+    "LoginAccount": "turrble",
+    "ProcessesRun": ["excel.exe"],
+    "SuspiciousActivity": ["none"],
+    "Image": "images/terryterrible.png"
+  },
+  {
+    "Name": "Barry Shmelly",
+    "Species": "Human",
+    "Hair": "brown",
+    "Accessory": ["backpack", "hat", "computer", "peanuts", "food", "earring"],
+    "ColorScheme": ["green", "black", "brown"],
+    "VisitedDomains": ["sketchydocs.io", "buysomenuts.com"],
+    "FilesDownloaded": ["tool.exe"],
+    "Hostname": "devbox-smells",
+    "IP": "10.3.4.8",
+    "LoginAccount": "bashmelly",
+    "ProcessesRun": ["chrome.exe", "cmd.exe"],
+    "SuspiciousActivity": ["clicked phishing ad"],
+    "Image": "images/barryshmelly.png"
+  },
+    {
+      "Name": "Barkland Fields",
+      "Species": "dog",
+      "Hair": "black",
+      "Accessory": ["backpack", "hat", "headphones", "tablet", "necklace"],
+      "ColorScheme": ["gray", "black"],
+      "VisitedDomains": ["sketchydocs.io"],
+      "FilesDownloaded": ["tool.exe"],
+      "Hostname": "devbox-jacob",
+      "IP": "10.3.4.8",
+      "LoginAccount": "bfields",
+      "ProcessesRun": ["chrome.exe", "cmd.exe"],
+      "SuspiciousActivity": ["clicked phishing ad"],
+      "Image": "images/barklandfields.png"
+    },
+    {
+      "Name": "Sally Byte",
+      "Species": "robot",
+      "Hair": "gray",
+      "Accessory": ["bracelet", "glasses", "controller", "headphones"],
+      "ColorScheme": ["blue", "gray"],
+      "VisitedDomains": ["linkedin.com", "botsneedbuds.com"],
+      "FilesDownloaded": ["cv.docx"],
+      "Hostname": "dev-sally",
+      "IP": "10.1.1.20",
+      "LoginAccount": "sbyte",
+      "ProcessesRun": ["vscode.exe", "teams.exe"],
+      "SuspiciousActivity": ["none"],
+      "Image": "images/sallybytes.png"
+    },
+    {
+      "Name": "Finn Focks",
+      "Species": "dog",
+      "Hair": "orange",
+      "Accessory": ["pen", "hat", "tablet", "necklace"],
+      "ColorScheme": ["orange", "black"],
+      "VisitedDomains": ["artsy.net", "sketchydocs.io"],
+      "FilesDownloaded": ["canvas_temp.zip"],
+      "Hostname": "foxpad",
+      "IP": "10.0.9.7",
+      "LoginAccount": "ffocks",
+      "ProcessesRun": ["photoshop.exe"],
+      "SuspiciousActivity": ["none"],
+      "Image": "images/finnfocks.png"
+    },
+    {
+      "Name": "Lenny Lizard",
+      "Species": "Lizard",
+      "Hair": "none",
+      "Accessory": ["watch", "USB", "necklace", "drink"],
+      "Expression": "sly smirk",
+      "ColorScheme": ["yellow", "green"],
+      "VisitedDomains": ["lizardleaks.net", "sketchydocs.io"],
+      "FilesDownloaded": ["Encrypted_Lair_Maps.zip"],
+      "Hostname": "gecko-den",
+      "IP": "10.0.3.9",
+      "SuspiciousActivity": [
+        "uploaded zip to unknown domain",
+        "accessed restricted file share"
+      ],
+      "LoginAccount": "lenlizzy",
+      "Image": "images/lennythelizard.png"
+    },
+    {
+      "Name": "Crably Crab",
+      "Species": "Crab",
+      "Hair": "none",
+      "Accessory": ["backpack", "phone", "hat", "glasses"],
+      "Expression": "suspicious side-eye",
+      "ColorScheme": ["red", "blue"],
+      "VisitedDomains": ["tidalshare.biz", "freeware-ocean.cc"],
+      "FilesDownloaded": ["Tide_Chart_Hack_v3.exe"],
+      "Hostname": "crab-pier7",
+      "IP": "10.0.4.21",
+      "SuspiciousActivity": [
+        "ran unknown executable",
+        "connected to offshore domain"
+      ],
+      "LoginAccount": "lroberts",
+      "Image": "images/crablythecrab.png"
+    },
+    {
+      "Name": "Bitty the Bot",
+      "Species": "Robot",
+      "Hair": "none",
+      "Accessory": ["joystick", "controller", "screen"],
+      "Expression": "glitchy grin",
+      "ColorScheme": ["gray", "pink"],
+      "VisitedDomains": ["popupmania.biz", "arcadekernel.net"],
+      "FilesDownloaded": ["Malware_PopupSpawner.bat"],
+      "Hostname": "bitbox-198X",
+      "IP": "10.0.6.7",
+      "SuspiciousActivity": [
+        "triggered malware popups",
+        "rewrote boot partition"
+      ],
+      "LoginAccount": "botmaster",
+      "Image": "images/bennybot.png"
+    },
+    {
+      "Name": "Dennis Muffinson",
+      "Species": "food",
+      "Hair": "black",
+      "Accessory": ["spoon", "hat", "glasses", "sprinkles"],
+      "Theme": "dessert-themed hacker",
+      "Expression": "smug and sugary",
+      "ColorScheme": ["purple", "pink"],
+      "VisitedDomains": ["frostedlogins.com", "sprinkle-ware.net"],
+      "FilesDownloaded": ["KeyloggerCakeRecipe.pdf"],
+      "Hostname": "bakery-rootkit",
+      "IP": "10.0.7.12",
+      "SuspiciousActivity": [
+        "used spoofed credentials",
+        "installed keylogger"
+      ],
+      "LoginAccount": "dmuffins",
+      "Image": "images/muffinmenace.png"
+    },
+    {
+      "Name": "Frosty Ferret",
+      "Species": "Ferret",
+      "Hair": "white",
+      "Accessory": ["necklace", "drink", "hat", "USB", "flashdrive", "earring"],
+      "Theme": "arctic cyber-chill",
+      "Expression": "smug and aloof",
+      "ColorScheme": ["white", "blue"],
+      "VisitedDomains": ["coldchainvpn.org", "frostlock.zone"],
+      "FilesDownloaded": ["EncryptedDrivePartition.img"],
+      "Hostname": "ferret-freeze7",
+      "IP": "10.0.8.14",
+      "SuspiciousActivity": [
+        "mounted encrypted partition",
+        "routed traffic through 3+ VPNs"
+      ],
+      "LoginAccount": "chillweasel",
+      "Image": "images/frostyferret.png"
+    },
+    {
+      "Name": "Nova Knowles",
+      "Species": "bird",
+      "Hair": "none",
+      "Accessory": ["tablet", "pen", "hat", "glasses"],
+      "Theme": "nocturnal infosec nerd",
+      "Expression": "intense and calculating",
+      "ColorScheme": ["black", "gray", "white"],
+      "VisitedDomains": ["packetpeek.net", "freewifi-access.co"],
+      "FilesDownloaded": ["SniffedTrafficLogs.csv"],
+      "Hostname": "owl-roost42",
+      "IP": "10.0.9.6",
+      "SuspiciousActivity": [
+        "connected to open network",
+        "captured packet data"
+      ],
+      "LoginAccount": "novabombs",
+      "Image": "images/novatheowl.png"
+    },
+    {
+      "Name": "Katie Bandita",
+      "Species": "Raccoon",
+      "Hair": ["gray", "orange"],
+      "Accessory": ["bag", "glasses", "purse"],
+      "Expression": "confident and clever",
+      "ColorScheme": ["gray", "orange"],
+      "VisitedDomains": [
+        "cybersniff.io",
+        "foxhole-forums.com"
+      ],
+      "FilesDownloaded": [
+        "ReconToolkit.exe"
+      ],
+      "Hostname": "bandita-lab",
+      "IP": "10.0.5.13",
+      "LoginAccount": "kbandita",
+      "ProcessesRun": ["chrome.exe", "whois.exe"],
+      "SuspiciousActivity": [
+        "enumerated network shares",
+        "accessed password dump"
+      ],
+      "Image": "images/katiebandita.png"
+    },
+    {
+      "Name": "Jordan Clicks",
+      "Species": "Human",
+      "Hair": "brown",
+      "Accessory": ["smartwatch", "tablet case", "bag"],
+      "Expression": "focused and friendly",
+      "ColorScheme": ["brown"],
+      "VisitedDomains": [
+        "ciphercamp.org",
+        "keyvault.chat"
+      ],
+      "FilesDownloaded": [
+        "student_logins.csv"
+      ],
+      "Hostname": "jc-device23",
+      "IP": "10.2.0.18",
+      "LoginAccount": "jclicks",
+      "ProcessesRun": ["vscode.exe", "wireshark.exe"],
+      "SuspiciousActivity": [
+        "accessed faculty-only directory",
+        "exfiltrated login spreadsheet"
+      ],
+      "Image": "images/jordanclicks.png"
+    },
+    {
+      "Name": "Stackwell Syrupjack",
+      "Species": "Food",
+      "Hair": "none",
+      "Accessory": ["hoodie", "VR goggles", "neon laptop"],
+      "ColorScheme": ["brown", "blue"],
+      "VisitedDomains": ["sketchydocs.io", "pancakesploit.net"],
+      "FilesDownloaded": ["butter_backdoor.exe"],
+      "Hostname": "griddle-core",
+      "IP": "10.0.10.7",
+      "LoginAccount": "sstackjack",
+      "ProcessesRun": ["nmap.exe", "powersploit.ps1"],
+      "SuspiciousActivity": [
+        "ran unauthorized port scan",
+        "established outbound tunnel to syrup.lol"
+      ],
+      "Image": "images/stackwell_syrupjack.png"
+    },
+    
+    {
+      "Name": "Claude Clawrence",
+      "Species": "Crab",
+      "Hair": "none",
+      "Accessory": ["trench coat", "sunglasses", "USB drive", "envelope"],
+      "ColorScheme": ["red", "brown"],
+      "VisitedDomains": ["tidalvpn.biz", "offshorefiles.co"],
+      "FilesDownloaded": ["briney_payload.zip"],
+      "Hostname": "pier-node1",
+      "IP": "10.0.5.29",
+      "LoginAccount": "cclawrence",
+      "ProcessesRun": ["ssh.exe", "scp.exe"],
+      "SuspiciousActivity": [
+        "transferred encrypted zip to unknown domain",
+        "connected to hidden peer node on port 5555"
+      ],
+      "Image": "images/claude_clawrence.png"
+    },
+    
+    {
+      "Name": "Blip Freezewhisker",
+      "Species": "Ferret",
+      "Hair": "white",
+      "Accessory": ["jacket", "goggles", "server", "glasses"],
+      "ColorScheme": ["white", "blue", "black"],
+      "VisitedDomains": ["icevaults.net", "vpn-glacier.org"],
+      "FilesDownloaded": ["snowpiercer_access.log"],
+      "Hostname": "arctic-nodeX",
+      "IP": "10.0.8.21",
+      "LoginAccount": "bfreeze",
+      "ProcessesRun": ["openssl.exe", "packet_freezer.py"],
+      "SuspiciousActivity": [
+        "spoofed geolocation to appear inside glacier vault",
+        "accessed restricted cold archive"
+      ],
+      "Image": "images/blip_freezewhisker.png"
+    },
+    
+    {
+      "Name": "Echo Scalewell",
+      "Species": "Lizard",
+      "Hair": "none",
+      "Accessory": ["jacket", "belt", "glasses", "USB", "hat"],
+      "ColorScheme": ["green", "black"],
+      "VisitedDomains": ["reptilemesh.net", "cactusvpn.io"],
+      "FilesDownloaded": ["scale_patcher_v2.exe"],
+      "Hostname": "lizard-lab9",
+      "IP": "10.0.3.22",
+      "LoginAccount": "escale",
+      "ProcessesRun": ["wireshark.exe", "powershell.exe"],
+      "SuspiciousActivity": [
+        "exfiltrated logs via disguised telemetry",
+        "used monocle-cam to bypass biometric scanner"
+      ],
+      "Image": "images/echo_scalewell.png"
+    },
+    {
+      "Name": "Nyx Whiskerbyte",
+      "Species": "Cat",
+      "Hair": "gray",
+      "Accessory": ["scarf", "glasses", "smartwatch", "USB", "vest"],
+      "ColorScheme": ["gray", "black"],
+      "VisitedDomains": ["felinefirewall.net", "meowcrypt.org"],
+      "FilesDownloaded": ["silentpaw_payload.exe"],
+      "Hostname": "lab-nyx9",
+      "IP": "10.0.7.33",
+      "LoginAccount": "nwhiskers",
+      "ProcessesRun": ["notepad.exe", "keylogger.exe"],
+      "SuspiciousActivity": [
+        "installed unauthorized input capture script",
+        "used smartwatch tethering to evade monitoring"
+      ],
+      "Image": "images/nyx_whiskerbyte.png"
+    },
+    {
+      "Name": "Zero Gravely",
+      "Species": "Zombie",
+      "Hair": "black",
+      "Accessory": ["jacket", "cyber eye", "laptop", "computer", "necklace", "ring"],
+      "ColorScheme": ["green", "brown"],
+      "VisitedDomains": ["darkresurrect.org", "bytebitten.net"],
+      "FilesDownloaded": ["undead_crypter.bat"],
+      "Hostname": "crypt-corez",
+      "IP": "10.0.6.66",
+      "LoginAccount": "zgrave",
+      "ProcessesRun": ["regedit.exe", "autorun.exe"],
+      "SuspiciousActivity": [
+        "attempted registry overwrite during boot",
+        "sent malware beacon via zombie mesh protocol"
+      ],
+      "Image": "images/zero_gravely.png"
+    },
+    {
+      "Name": "Cyra Nighthatch",
+      "Species": "bird",
+      "Hair": "none",
+      "Accessory": ["glasses", "vest", "tablet", "belt", "headphones"],
+      "ColorScheme": ["black", "blue"],
+      "VisitedDomains": ["nightnode.net", "packetwatch.org"],
+      "FilesDownloaded": ["network_trace_logs.zip"],
+      "Hostname": "owl-intel-01",
+      "IP": "10.0.9.12",
+      "LoginAccount": "cnight",
+      "ProcessesRun": ["wireshark.exe", "owlscan.ps1"],
+      "SuspiciousActivity": [
+        "captured encrypted packets from faculty VLAN",
+        "used custom PowerShell tool to decode headers"
+      ],
+      "Image": "images/cyra_nighthatch.png"
+    },
+    {
+      "Name": "Brain Stillen",
+      "Species": "Human",
+      "Hair": "red",
+      "Accessory": ["glasses", "laptop", "computer"],
+      "ColorScheme": ["red", "blue"],
+      "VisitedDomains": ["codeforge.net", "patchnode.io"],
+      "FilesDownloaded": ["hotfix_bypass.exe"],
+      "Hostname": "devterm-epatch",
+      "IP": "10.0.2.45",
+      "LoginAccount": "epatch",
+      "ProcessesRun": ["vscode.exe", "pydebugger.exe"],
+      "SuspiciousActivity": [
+        "executed unsigned hotfix binary",
+        "used VPN to mask internal code push"
+      ],
+      "Image": "images/brain_stillen.png"
+    },
+    {
+      "Name": "Riff Scaleburn",
+      "Species": "Lizard",
+      "Hair": "none",
+      "Accessory": ["headphones", "jacket", "gloves", "portable hard drive"],
+      "ColorScheme": ["blue", "green", "black"],
+      "VisitedDomains": ["reptileremote.org", "hotspotz.me"],
+      "FilesDownloaded": ["hard_drive_emulator.iso"],
+      "Hostname": "scalezone-riff",
+      "IP": "10.0.4.88",
+      "LoginAccount": "scaleburnr",
+      "ProcessesRun": ["diskpart.exe", "ping.exe"],
+      "SuspiciousActivity": [
+        "mounted unauthorized drive image",
+        "used command line to initiate stealth data exfil"
+      ],
+      "Image": "images/riff_scaleburn.png"
+    },
+    {
+      "Name": "Jet Talonstrike",
+      "Species": "Bird",
+      "Hair": "none",
+      "Accessory": ["jacket", "sunglasses", "bag", "drone", "controller"],
+      "ColorScheme": ["gray", "brown"],
+      "VisitedDomains": ["droneops.net", "skyfireproxy.io"],
+      "FilesDownloaded": ["remote_uplink_toolkit.zip"],
+      "Hostname": "roost-ctrl01",
+      "IP": "10.0.11.4",
+      "LoginAccount": "jtalonstrike",
+      "ProcessesRun": ["dronepilot.exe", "vpn.exe"],
+      "SuspiciousActivity": [
+        "launched automated drone scan of faculty parking lot network",
+        "used mobile proxy to evade geo-tracking"
+      ],
+      "Image": "images/jet_talonstrike.png"
+    },
+    {
+      "Name": "Rio Chattercode",
+      "Species": "Bird",
+      "Hair": "none",
+      "Accessory": ["headphones", "vest", "bracelet", "tablet", "backpack"],
+      "ColorScheme": ["green", "blue"],
+      "VisitedDomains": ["squawknet.net", "codeparrot.io"],
+      "FilesDownloaded": ["mimic_macro.docx"],
+      "Hostname": "jungle-hub-7",
+      "IP": "10.0.12.19",
+      "LoginAccount": "rchat",
+      "ProcessesRun": ["discord.exe", "voice-mimic.bat"],
+      "SuspiciousActivity": [
+        "ran voice emulation tool targeting IT admins",
+        "sent phishing macros mimicking staff emails"
+      ],
+      "Image": "images/rio_chattercode.png"
+    },
+    {
+      "Name": "Ranger Baldwing",
+      "Species": "Bird",
+      "Hair": "none",
+      "Accessory": ["vest", "sunglasses", "tablet"],
+      "ColorScheme": ["brown", "white"],
+      "VisitedDomains": ["skywatchers.gov", "eagleintel.net"],
+      "FilesDownloaded": ["drone_logs_archive.zip"],
+      "Hostname": "highflight-ranger",
+      "IP": "10.0.13.22",
+      "LoginAccount": "rtalon",
+      "ProcessesRun": ["surveillance.exe", "geotracktool.exe"],
+      "SuspiciousActivity": [
+        "accessed restricted satellite telemetry",
+        "retrieved drone surveillance cache from offsite node"
+      ],
+      "Image": "images/ranger_baldwing.png"
+    },
+    {
+      "Name": "Pixel Redflare",
+      "Species": "Bird",
+      "Hair": "none",
+      "Accessory": ["jacket", "headphones", "data chip", "necklace"],
+      "ColorScheme": ["red", "black"],
+      "VisitedDomains": ["birdburst.social", "cardinalcache.net"],
+      "FilesDownloaded": ["encrypted_featherdump.rar"],
+      "Hostname": "perch-9xr",
+      "IP": "10.0.14.7",
+      "LoginAccount": "predflare",
+      "ProcessesRun": ["spotify.exe", "hexdump.exe"],
+      "SuspiciousActivity": [
+        "hid data fragments in .mp3 file metadata",
+        "used steganography plugin in audio waveform"
+      ],
+      "Image": "images/pixel_redflare.png"
+    },
+    {
+      "Name": "Milo Breadcrumb",
+      "Species": "Zombie",
+      "Hair": "none",
+      "Accessory": ["jacket", "smartphone", "pretzel"],
+      "ColorScheme": ["green", "gray"],
+      "VisitedDomains": ["snackstagram.org", "zombiecloud.io"],
+      "FilesDownloaded": ["crunchycredentials.png"],
+      "Hostname": "selfie-shack-01",
+      "IP": "10.0.15.66",
+      "LoginAccount": "mbreadcrumb",
+      "ProcessesRun": ["camera.exe", "uploadtool.exe"],
+      "SuspiciousActivity": [
+        "uploaded screenshot containing password hint",
+        "synced login session to public snack Wi-Fi"
+      ],
+      "Image": "images/milo_breadcrumb.png"
+    },
+    {
+      "Name": "Nico Nibbletail",
+      "Species": "Lizard",
+      "Hair": "none",
+      "Accessory": ["vest", "smartphone", "drink"],
+      "ColorScheme": ["orange", "black"],
+      "VisitedDomains": ["newtnet.social", "loungefiles.org"],
+      "FilesDownloaded": ["icedcoffee_credentials.csv"],
+      "Hostname": "slickscale-07",
+      "IP": "10.0.6.91",
+      "LoginAccount": "nnibble",
+      "ProcessesRun": ["slack.exe", "juicebox.py"],
+      "SuspiciousActivity": [
+        "posted login details in team chat by accident",
+        "connected to rogue guest Wi-Fi while streaming"
+      ],
+      "Image": "images/nico_nibbletail.png"
+    },
+    {
+      "Name": "Mochi Meowcode",
+      "Species": "Cat",
+      "Hair": ["white", "orange", "black"],
+      "Accessory": ["food", "headphones"],
+      "ColorScheme": ["white", "orange"],
+      "VisitedDomains": ["tunaplaylists.net", "meowhub.io"],
+      "FilesDownloaded": ["spotify_phish.mp3"],
+      "Hostname": "catstation-mochi",
+      "IP": "10.0.16.23",
+      "LoginAccount": "mmeowcode",
+      "ProcessesRun": ["musicplayer.exe", "curl.exe"],
+      "SuspiciousActivity": [
+        "streamed suspicious audio file with embedded payload",
+        "used shell commands while listening to lo-fi beats"
+      ],
+      "Image": "images/mochi_meowcode.png"
+    },
+    {
+      "Name": "Kai Driftfeather",
+      "Species": "Bird",
+      "Hair": "none",
+      "Accessory": ["portable speaker", "smartwatch", "hat"],
+      "ColorScheme": ["white", "gray"],
+      "VisitedDomains": ["wavevpn.net", "featherboarders.org"],
+      "FilesDownloaded": ["chillaccesspoints.kdbx"],
+      "Hostname": "icecrest-surf01",
+      "IP": "10.0.17.9",
+      "LoginAccount": "kdrift",
+      "ProcessesRun": ["waveplayer.exe", "vpn.exe"],
+      "SuspiciousActivity": [
+        "accessed internal test server while connected to surf shack Wi-Fi",
+        "used VPN to spoof location during credentials sync"
+      ],
+      "Image": "images/kai_driftfeather.png"
+    },
+    {
+      "Name": "Benny Bitbark",
+      "Species": "Dog",
+      "Hair": "brown",
+      "Accessory": ["sunglasses", "laptop", "drink", "computer", "smartwatch"],
+      "ColorScheme": ["brown", "black"],
+      "VisitedDomains": ["woofvpn.org", "bitfetch.net"],
+      "FilesDownloaded": ["packet_sniffing_guide.pdf"],
+      "Hostname": "benny-devdog",
+      "IP": "10.0.18.45",
+      "LoginAccount": "bitbark",
+      "ProcessesRun": ["vscode.exe", "sniffer.py"],
+      "SuspiciousActivity": [
+        "ran network sniffing script on shared coffee shop Wi-Fi",
+        "enabled packet capture without notifying admin"
+      ],
+      "Image": "images/benny_bitbark.png"
+    },
+    {
+      "Name": "Ziggy Packettail",
+      "Species": "Dog",
+      "Hair": ["black", "white"],
+      "Accessory": ["jacket", "necklace", "headphones", "tablet"],
+      "ColorScheme": ["black", "white"],
+      "VisitedDomains": ["barknet.io", "sneakernet.zone"],
+      "FilesDownloaded": ["rogue_ap_scanner.apk"],
+      "Hostname": "zigpad-corginet",
+      "IP": "10.0.19.88",
+      "LoginAccount": "zpacket",
+      "ProcessesRun": ["netmap.exe", "glowpad.js"],
+      "SuspiciousActivity": [
+        "ran unknown APK on school tablet",
+        "connected to unauthorized access point labeled 'FreeChews'"
+      ],
+      "Image": "images/ziggy_packettail.png"
+    },
+    {
+      "Name": "Simon Hackpovi",
+      "Species": "Human",
+      "Hair": "black",
+      "Accessory": ["jacket", "tablet", "smartwatch"],
+      "ColorScheme": ["black", "gray"],
+      "VisitedDomains": ["devpost.io", "kc7cyber.com"],
+      "FilesDownloaded": ["keymap_config.json", "autoencoder_patch.zip"],
+      "Hostname": "simonseven",
+      "IP": "10.0.22.33",
+      "LoginAccount": "hackpovi",
+      "ProcessesRun": ["vscode.exe", "gitbash.exe", "node.exe"],
+      "SuspiciousActivity": [
+        "pushed unreviewed code to production",
+        "ran custom binary from unknown repo"
+      ],
+      "Image": "images/simon_hackpovi.png"
+    },
+    {
+      "Name": "Jobby Ghotang",
+      "Species": "Human",
+      "Hair": "black",
+      "Accessory": ["hat", "jacket", "smartwatch", "laptop", "computer", "bracelet"],
+      "ColorScheme": ["yellow", "gray"],
+      "VisitedDomains": ["ghostnet.dev", "kc7cyber.com"],
+      "FilesDownloaded": ["silent_scanner.exe", "ghost_ping_log.txt"],
+      "Hostname": "watch_ghost",
+      "IP": "10.0.11.44",
+      "LoginAccount": "casioghost",
+      "ProcessesRun": ["python.exe", "sublime.exe"],
+      "SuspiciousActivity": [
+        "used encrypted channel from public bench",
+        "cloaked process name to evade monitor"
+      ],
+      "Image": "images/jobby_ghotang.png"
+    },
+    {
+      "Name": "Grog Roamer",
+      "Species": "Human",
+      "Hair": "blond",
+      "Accessory": ["glasses", "drink", "watch"],
+      "ColorScheme": ["blue", "gray"],
+      "VisitedDomains": ["kc7cyber.com", "coffeecode.net"],
+      "FilesDownloaded": ["debug_log_parser.py", "coffee_mug_macro.txt"],
+      "Hostname": "grog-station7",
+      "IP": "10.0.77.12",
+      "LoginAccount": "schlomethemoney",
+      "ProcessesRun": ["teams.exe", "vscode.exe"],
+      "SuspiciousActivity": ["logged in from coffee shop Wi-Fi", "uploaded credentials to pastebin accidentally"],
+      "Image": "images/grog_roamer.png"
+    },
+    {
+      "Name": "Camo Cruncher",
+      "Species": "Lizard",
+      "Hair": "none",
+      "Accessory": ["headphones", "vest", "food"],
+      "ColorScheme": ["green", "black"],
+      "VisitedDomains": ["insectbytes.net", "blendin.biz"],
+      "FilesDownloaded": ["obfuscator_tool.exe", "invisibility_drivers.dll"],
+      "Hostname": "treeport-camo7",
+      "IP": "10.0.5.99",
+      "LoginAccount": "camo_crunch",
+      "ProcessesRun": ["stealthmode.exe", "notepad.exe"],
+      "SuspiciousActivity": [
+        "cloaked IP address during file transfer",
+        "used USB to exfiltrate logs"
+      ],
+      "Image": "images/camo_cruncher.png"
+    },
+    {
+      "Name": "Blixx Gremlin",
+      "Species": "Monster",
+      "Hair": "blue",
+      "Accessory": ["tablet", "backpack", "earring", "horns"],
+      "ColorScheme": ["blue", "green"],
+      "VisitedDomains": ["glitchville.fun", "tabletcrash.zone"],
+      "FilesDownloaded": ["corrupted_installer.exe", "blixx_backup.zip"],
+      "Hostname": "gremlin-hub42",
+      "IP": "10.0.13.6",
+      "LoginAccount": "blixxg",
+      "ProcessesRun": ["paint.exe", "cmd.exe", "ransom_script.py"],
+      "SuspiciousActivity": [
+        "ran corrupted code from USB",
+        "overclocked device and melted RAM",
+        "triggered false system updates"
+      ],
+      "Image": "images/blixx_gremlin.png"
+    },
+    {
+      "Name": "Zina Byteburst",
+      "Species": "Monster",
+      "Hair": ["pink", "purple"],
+      "Accessory": ["belt", "earring", "horns", "pen"],
+      "ColorScheme": ["purple", "pink"],
+      "VisitedDomains": ["monsterhub.io", "byteblitz.com"],
+      "FilesDownloaded": ["trojan_wrangler_v2.zip", "glowboots_firmware.exe"],
+      "Hostname": "zinabot-alpha",
+      "IP": "10.2.8.15",
+      "LoginAccount": "zbyte",
+      "ProcessesRun": ["hacktool.exe", "powershell.exe", "firmware_patch.bat"],
+      "SuspiciousActivity": [
+        "connected to hidden admin panel",
+        "flashed rogue firmware update",
+        "spoofed user agent headers"
+      ],
+      "Image": "images/zina_byteburst.png"
+    },
+    {
+      "Name": "Zelle Brainstorm",
+      "Species": "Zombie",
+      "Hair": "gray",
+      "Accessory": ["food", "phone", "earring", "necklace"],
+      "ColorScheme": ["green", "black"],
+      "VisitedDomains": ["necrochat.net", "braindrain.blog"],
+      "FilesDownloaded": ["phish_script_final.exe", "undead_ui_theme.zip"],
+      "Hostname": "gravebook-pro13",
+      "IP": "10.0.13.31",
+      "LoginAccount": "zbrains",
+      "ProcessesRun": ["chrome.exe", "obfuscator.bat", "discord.exe"],
+      "SuspiciousActivity": [
+        "ran process with invalid cert",
+        "linked to darknet via expired VPN",
+        "uploaded memory dump to unknown server"
+      ],
+      "Image": "images/zelle_brainstorm.png"
+    }
+  ]

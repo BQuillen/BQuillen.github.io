@@ -1,0 +1,207 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #042f4b;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-panel,
+.right-panel {
+  flex: 0 0 200px; /* makes them fixed-size on wide screens */
+  min-width: 150px;
+  max-width: 240px;
+  padding: 1rem;
+  font-size: 0.65rem;
+  background: linear-gradient(to bottom, #cc5500, hwb(33 20% 0%));
+  color: #fff;
+  overflow-y: auto; /* ✅ Enable scrolling */
+  max-height: 100vh; /* ✅ Make them stay within screen */
+  box-sizing: border-box;
+}
+
+  
+  
+  
+  .left-panel img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  main {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    background-color: #063b5f; /* Slightly lighter than side panels */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  }  
+  
+  h1 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-family: "Press Start 2P", cursive;
+  }
+  
+  .query-box input {
+    width: 350px;
+    padding: 0.6rem;
+    background-color: #001e2b;
+    border: 1px solid #cbd6e2;
+    color: white;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
+  
+  .query-box button {
+    padding: 0.6rem 1rem;
+    background: #ff5400;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Press Start 2P", cursive;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .query-box button:hover {
+    background-color: #cc4400;
+  }
+  
+  .mode-box {
+    margin: 1rem 0;
+    font-size: 0.7rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-items: center;
+    align-items: start;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* Adjust character card size and layout */
+  .character-card {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0.8rem;
+    width: 180px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    color: #000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* stronger shadow */
+  }
+  
+  
+  .character-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Optional: Hover effect */
+  .character-card:hover {
+    transform: scale(1.03);
+    box-shadow:
+      0 0 10px rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(255, 84, 0, 0.4),
+      0 6px 12px rgba(0, 0, 0, 0.25);
+    border-color: #ff5400;
+  }
+  
+  
+  .right-panel ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .right-panel li {
+    background: white;
+    margin-bottom: 0.4rem;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    color: #003858;
+  }
+  
+  .new-round {
+    margin: 1rem 0;
+  }
+  
+  .new-round button {
+    background: #ff5400;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .new-round button:hover {
+    background: #cc4400;
+  }
+  
+  .banner {
+    background-color: #ff6a1a;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .banner h1 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 0;
+    font-family: "Press Start 2P", cursive;
+  }
+  
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+  
+    .left-panel, .right-panel {
+      width: 100%;
+      flex: none;
+      max-height: 150px;
+    }
+  
+    main {
+      padding: 1rem;
+    }
+  }
+  
+  #promptInstruction {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    background-color: #1c4168;
+    border: 1px dashed gold;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: opacity 0.3s ease;
+
+  }
+  
