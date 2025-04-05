@@ -784,7 +784,7 @@
     },
   {
   "Name": "Amber Blueberry",
-  "Species": "Human",
+  "Species": "cat",
   "Hair": "blue",
   "Accessory": ["Phone", "drink", "bracelet", "hat"],
   "ColorScheme": ["blue", "purple"],
