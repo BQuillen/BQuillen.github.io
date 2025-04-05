@@ -55,6 +55,44 @@ body {
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
     min-width: 0;
   }  
+
+  .main-navbar {
+    background-color: #001e2b;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-family: "Press Start 2P", cursive;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid #ff5400;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+  }
+  
+  .nav-title {
+    font-size: 1rem;
+    color: #ff6a1a;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .nav-links a:hover {
+    color: #ff6a1a;
+    text-shadow: 0 0 4px #ff6a1a;
+  }
+  
   
   h1 {
     margin-bottom: 1rem;
@@ -268,4 +306,96 @@ body {
     }
   }
   
+  .page-content {
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
   
+  .page-content pre {
+    background-color: #001e2b;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .main-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .page-content {
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+  
+    .banner h1 {
+      font-size: 1rem;
+    }
+  }
+  
+ 
+/* Accordion layout */
+#filterList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Filter header (clickable area) */
+.filter-header {
+  background-color: #063b5f; /* Match main panel */
+  color: #fff;
+  border: 1px solid #ff6a1a;
+  border-radius: 2px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.filter-header:hover {
+  background-color: #09426e;
+}
+
+/* Filter content (expandable box) */
+.filter-content {
+  background: rgba(255, 106, 26, 0.15); /* soft orange overlay */
+  color: #09426e;
+  font-size: 0.7rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ff6a1a;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.heading{
+  font-size: large;
+}
+
+#targetDisplay {
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
