@@ -6,6 +6,8 @@ let queryHistory = [];
 let promptCategory = null;
 let eliminatedCharacters = new Set();
 let hasWon = false;
+let currentPromptField = null;
+
 
 
 
@@ -26,25 +28,48 @@ const gameModes = {
 };
 
 function selectRandomPromptCategory() {
-  const allFields = [...new Set([...gameModes.image, ...gameModes.data])];
-  const chosen = allFields[Math.floor(Math.random() * allFields.length)];
+  const promptFields = [
+    "Species",
+    "Accessory",
+    "ColorScheme",
+    "VisitedDomains",
+    "FilesDownloaded",
+    "Hostname",
+    "IP",
+    "ProcessesRun"
+  ];
+  const chosen = promptFields[Math.floor(Math.random() * promptFields.length)];
   gameModes.prompt = [chosen];
   return chosen;
 }
 
-function validateQuery(query, mode, promptCategory) {
-    const errors = [];
-    if (!query.toLowerCase().trim().startsWith("where ")) {
-      errors.push("Query must start with 'where'.");
-    }
-    if (/[^=!<>]=[^=]/.test(query)) {
-      errors.push("Use '==' for comparisons, not '='.");
-    }
-    if (mode === "prompt" && promptCategory && !query.includes(promptCategory)) {
-      errors.push(`You may only use: ${promptCategory}`);
-    }
-    return errors;
+
+function validateQuery(query, mode, promptField) {
+  const errors = [];
+  if (!query.toLowerCase().trim().startsWith("where ")) {
+    errors.push("Query must start with 'where'.");
   }
+  if (/[^=!<>]=[^=]/.test(query)) {
+    errors.push("Use '==' for comparisons, not '='.");
+  }
+
+  if (mode === "prompt" && promptField) {
+    const queryLower = query.toLowerCase();
+    const fieldLower = promptField.toLowerCase();
+
+    const isGuessingName =
+      queryLower.includes('name ==') || queryLower.includes('name contains');
+
+    if (!isGuessingName && !queryLower.includes(fieldLower)) {
+      errors.push(`You may only use: ${promptField}`);
+    }
+  }
+
+  return errors; // ← You were missing this
+}
+
+  
+
   
 
 async function loadCharacters() {
@@ -66,6 +91,12 @@ async function loadCharacters() {
   queryCount = 0;
   queryHistory = [];
   promptCategory = null;
+  currentPromptField = null;
+const promptBox = document.getElementById("promptInstruction");
+if (promptBox) {
+  promptBox.style.display = "none";
+  promptBox.innerHTML = "";
+}
   document.getElementById("queryCounter").textContent = `🔁 Queries Used: ${queryCount}`;
   document.getElementById("celebration").style.display = "none";
   document.getElementById("queryFeedback").innerText = "";
@@ -75,6 +106,15 @@ async function loadCharacters() {
   renderCharacters(characters, visibleCharacters);
   setupKQLKeyboard();
   
+  // ✅ Ensure prompt is regenerated if in prompt mode
+const mode = document.getElementById("modeSelect").value;
+if (mode === "prompt") {
+  currentPromptField = selectRandomPromptCategory();
+  const promptBox = document.getElementById("promptInstruction");
+  promptBox.style.display = "block";
+  promptBox.innerHTML = `🎯 Use only this filter category: <strong>${currentPromptField}</strong>`;
+}
+
 
 }
 
@@ -102,75 +142,77 @@ document.getElementById("modeSelect").addEventListener("change", () => {
   const promptBox = document.getElementById("promptInstruction");
 
   if (mode === "prompt") {
-    promptCategory = selectRandomPromptCategory();
+    currentPromptField = selectRandomPromptCategory();
     promptBox.style.display = "block";
-    promptBox.innerHTML = `🎯 Use only this filter category: <strong>${promptCategory}</strong>`;
+    promptBox.innerHTML = `🎯 Use only this filter category: <strong>${currentPromptField}</strong>`;
   } else {
-    promptCategory = null;
+    currentPromptField = null;
     promptBox.style.display = "none";
     promptBox.innerHTML = "";
   }
 });
 
 
+
 function runQuery() {
-    const query = document.getElementById("kqlInput").value;
-    const mode = document.getElementById("modeSelect").value;
-  
-    if (!query.trim()) return;
-  
-    if (mode === "prompt" && !promptCategory) {
-      promptCategory = selectRandomPromptCategory();
-      document.getElementById("queryFeedback").innerText =
-        `🎯 Use only this filter category: ${promptCategory}`;
-    }
-  
-    const errors = validateQuery(query, mode, promptCategory);
-    if (errors.length > 0) {
-      document.getElementById("queryFeedback").innerText = `❌ ${errors.join("\n")}`;
-      document.getElementById("queryFeedback").style.color = "red";
-      return;
-    }
-  
-    queryHistory.push(query);
-    updateQueryLog();
-  
-    const targetMatches = checkQueryAgainstTarget(query); // ✅ fixed: now returns true/false
-    if (targetMatches) {
-        document.getElementById("queryFeedback").innerText =
-          "✅ Yes! You're one step closer to finding the attacker.";
-        document.getElementById("queryFeedback").style.color = "green";
-      } else {
-        document.getElementById("queryFeedback").innerText =
-          "❌ Hmm... That doesn't seem to help.";
-        document.getElementById("queryFeedback").style.color = "red";
-      }
-      
-  
-    if (targetMatches) {
-        // Filter characters that match the query AND are not already eliminated
-        const matching = characters.filter(c => evaluateQuery(query, c));
-        visibleCharacters = characters.filter(c => !eliminatedCharacters.has(c.Name) && matching.includes(c));
-      
-        // Mark everyone else as eliminated
-        characters.forEach(c => {
-          if (!matching.includes(c)) eliminatedCharacters.add(c.Name);
-        });
-      }
-       else {
-      // ❌ Not helpful → no change to visibleCharacters
-      document.getElementById("queryFeedback").innerText =
-        "❌ Hmm... That doesn't seem to help.";
-      document.getElementById("queryFeedback").style.color = "red";
-    }
-  
-    queryCount++;
-    document.getElementById("queryCounter").textContent = `🔁 Queries Used: ${queryCount}`;
-    document.getElementById("kqlInput").value = "";
-  
-    renderCharacters(characters, visibleCharacters);
-    checkWinCondition(query);
+  const query = document.getElementById("kqlInput").value;
+  const mode = document.getElementById("modeSelect").value;
+
+  if (!query.trim()) return;
+
+  if (mode === "prompt" && !currentPromptField) {
+    currentPromptField = selectRandomPromptCategory();
+    document.getElementById("queryFeedback").innerText =
+      `🎯 This round's filter: ${currentPromptField}`;
+    document.getElementById("queryFeedback").style.color = "gold";
   }
+
+  const errors = validateQuery(query, mode, currentPromptField);
+  if (errors.length > 0) {
+    document.getElementById("queryFeedback").innerText = `❌ ${errors.join("\n")}`;
+    document.getElementById("queryFeedback").style.color = "red";
+    return;
+  }
+
+  const targetMatches = checkQueryAgainstTarget(query);
+  queryHistory.push({ text: query, match: targetMatches });
+  updateQueryLog();
+
+  if (targetMatches) {
+    document.getElementById("queryFeedback").innerText =
+      "✅ Yes! You're one step closer to finding the attacker.";
+    document.getElementById("queryFeedback").style.color = "green";
+
+    const matching = characters.filter(c => evaluateQuery(query, c));
+    visibleCharacters = characters.filter(c => !eliminatedCharacters.has(c.Name) && matching.includes(c));
+    characters.forEach(c => {
+      if (!matching.includes(c)) eliminatedCharacters.add(c.Name);
+    });
+
+    if (mode === "prompt") {
+      currentPromptField = selectRandomPromptCategory();
+      const promptBox = document.getElementById("promptInstruction");
+      if (promptBox) {
+        promptBox.innerHTML = `🎯 Use only this filter category: <strong>${currentPromptField}</strong>`;
+      }
+    }
+  } else {
+    document.getElementById("queryFeedback").innerText =
+      "❌ Hmm... That doesn't seem to help.";
+    document.getElementById("queryFeedback").style.color = "red";
+  }
+
+  queryCount++;
+  document.getElementById("queryCounter").textContent = `🔁 Queries Used: ${queryCount}`;
+  document.getElementById("kqlInput").value = "";
+
+  // ✅ Always re-render the board after a query
+  renderCharacters(characters, visibleCharacters);
+  checkWinCondition(query);
+}
+
+
+
   
   
   function evaluateQuery(query, char) {
@@ -208,8 +250,8 @@ function runQuery() {
     const logDiv = document.getElementById("queryLog");
     logDiv.innerHTML = "<strong>Query History:</strong><br/>" +
       queryHistory.map((q, i) => {
-        const isMatch = checkQueryAgainstTarget(q);
-        const bgColor = isMatch ? "#d4f4dd" : "#f8d7da"; // light green or red
+        const isMatch = checkQueryAgainstTarget(q.text); // ✅ fix here
+        const bgColor = isMatch ? "#d4f4dd" : "#f8d7da";
         const border = isMatch ? "1px solid #5cb85c" : "1px solid #d9534f";
         return `
           <div style="
@@ -219,11 +261,12 @@ function runQuery() {
             padding: 4px;
             margin-bottom: 2px;
           ">
-            #${i + 1}: ${q}
+            #${i + 1}: ${q.text}
           </div>
         `;
       }).join("");
   }
+  
   
   
 
@@ -383,6 +426,3 @@ function checkQueryAgainstTarget(query) {
 window.onload = () => {
   loadCharacters();
 }
-
-promptBox.style.opacity = "1"; // when showing
-promptBox.style.opacity = "0"; // when hiding
