@@ -69,13 +69,25 @@ function validateQuery(query, mode, promptField) {
 }
 
   
+function fisherYatesShuffle(array) {
+  let m = array.length, t, i;
+
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
 
   
 
 async function loadCharacters() {
   const res = await fetch("data/characters.json");
   const allCharacters = await res.json();
-  characters = allCharacters.sort(() => 0.5 - Math.random()).slice(0, 16);
+  characters = fisherYatesShuffle(allCharacters).slice(0, 16);
   visibleCharacters = [...characters];
   eliminatedCharacters = new Set();
   hasWon = false;
@@ -479,4 +491,3 @@ function createFilterAccordion() {
 
 
 window.addEventListener("DOMContentLoaded", createFilterAccordion);
- 
