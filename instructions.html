@@ -27,8 +27,12 @@
 
       <h2 style="margin-top: 1rem;">Examples:</h2>
       <pre style="background-color: #001e2b; padding: 0.8rem; border-radius: 6px; font-family: 'Courier New', monospace;">
-Characters
-| where Species == "robot" and Hair contains "blue"
+| where Species == "robot"<br>
+        <ul>
+          <li style="text-decoration: none;"><i>checks whether character is a robot</i></li>
+        </ul>
+| where Hair contains "blue"<br>
+| where Accessory !contains "glasses"<br>
       </pre>
 
       <pre style="background-color: #001e2b; padding: 0.8rem; border-radius: 6px; font-family: 'Courier New', monospace;">
