@@ -826,7 +826,105 @@
   "ProcessesRun": ["snackScraper.py", "midnightSync.exe", "decoyProtocol.sh"],
   "SuspiciousActivity": "Automated login attempts from remote IPs during restricted hours",
   "Image": "juno_quibble.png"
-}
+},
+  {
+  "Name": "Nova Shrimpkin",
+  "Species": "crab",
+  "Hair": "none",
+  "Accessory": ["headphones", "drink"],
+  "ColorScheme": ["red", "white"],
+  "VisitedDomains": ["fishflix.net", "oceanicjobs.biz"],
+  "FilesDownloaded": ["playlist_export.csv"],
+  "Hostname": "n0v4-laptop",
+  "IP": "192.168.3.14",
+  "LoginAccount": "nshrimpkin",
+  "ProcessesRun": ["spotify.exe", "chrome.exe"],
+  "SuspiciousActivity": "downloaded fake music plugin",
+  "Image": "nova_shrimpkin.png"
+},
+  {
+  "Name": "Crumbly Tuff",
+  "Species": "food",
+  "Hair": "pink",
+  "Accessory": ["watch", "backpack"],
+  "ColorScheme": ["pink", "blue"],
+  "VisitedDomains": ["sketchydocs.io", "cakehub.net"],
+  "FilesDownloaded": ["SprinkleData.exe", "ToppingLog.txt"],
+  "Hostname": "crum87y-laptop",
+  "IP": "10.0.14.77",
+  "LoginAccount": "ctuff",
+  "ProcessesRun": ["notepad.exe", "taskmgr.exe"],
+  "SuspiciousActivity": "ran unsigned EXE from sketchydocs",
+  "Image": "crumbly_tuff.png"
+},
+  {
+  "Name": "Delta Vex",
+  "Species": "robot",
+  "Hair": "none",
+  "Accessory": ["glasses", "tablet", "jacket"],
+  "ColorScheme": ["gray", "black"],
+  "VisitedDomains": ["techbazaar.com", "downloadz.io"],
+  "FilesDownloaded": ["DriverPatchV2.exe"],
+  "Hostname": "d37t4-mobile",
+  "IP": "172.16.0.55",
+  "LoginAccount": "dvex",
+  "ProcessesRun": ["powershell.exe", "explorer.exe"],
+  "SuspiciousActivity": "used Powershell to create hidden user",
+  "Image": "delta_vex.png"
+},
+  {
+  "Name": "Rizzo Coil",
+  "Species": "lizard",
+  "Hair": "green",
+  "Accessory": ["bandana", "drink", "hat", "bag"],
+  "ColorScheme": ["green", "yellow"],
+  "VisitedDomains": ["sunnytraps.net", "sketchydocs.io"],
+  "FilesDownloaded": ["VPNSetup.bat"],
+  "Hostname": "r1220-mobile",
+  "IP": "10.0.88.14",
+  "LoginAccount": "rcoil",
+  "ProcessesRun": ["vpn.exe", "browser.exe"],
+  "SuspiciousActivity": "spoofed MAC address and logged in anonymously",
+  "Image": "rizzo_coil.png"
+},
+  {
+  "Name": "Echo Blink",
+  "Species": "monster",
+  "Hair": "white",
+  "Accessory": ["glasses", "watch"],
+  "ColorScheme": ["white", "red"],
+  "VisitedDomains": ["ghostgram.com", "hauntspace.net"],
+  "FilesDownloaded": ["InvisiblePatch.exe"],
+  "Hostname": "871nk-device",
+  "IP": "172.16.12.11",
+  "LoginAccount": "eblink",
+  "ProcessesRun": ["phantom.exe", "stealth.exe"],
+  "SuspiciousActivity": "attempted to hide network presence using spoof tools",
+  "Image": "echo_blink.png"
+},
+  {
+  "Name": "Tinker Bramble",
+  "Species": "ferret",
+  "Hair": "brown",
+  "Accessory": ["hat", "headphones"],
+  "ColorScheme": ["brown", "red"],
+  "VisitedDomains": ["puzzleforge.io", "mysterymail.biz"],
+  "FilesDownloaded": ["lockpicker.zip"],
+  "Hostname": "t1nk3r-laptop",
+  "IP": "192.168.44.9",
+  "LoginAccount": "tbramble",
+  "ProcessesRun": ["7zip.exe", "explorer.exe"],
+  "SuspiciousActivity": "opened zip file with embedded executable",
+  "Image": "tinker_bramble.png"
+},
+ 
+
+
+
+
+
+
+
 
 
 
