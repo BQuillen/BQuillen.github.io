@@ -26,14 +26,18 @@
       <p>In <strong>KQ Who?</strong>, your mission is to identify the attacker by filtering out innocent characters using <strong>Kusto Query Language</strong> (KQL).</p>
 
       <h2 style="margin-top: 1rem;">Examples:</h2>
-      <pre style="background-color: #001e2b; padding: 0.8rem; border-radius: 6px; font-family: 'Courier New', monospace;">
-| where Species == "robot"<br>
-        <ul>
-          <li style="text-decoration: none;"><i>checks whether character is a robot</i></li>
-        </ul>
-| where Hair contains "blue"<br>
-| where Accessory !contains "glasses"<br>
-      </pre>
+      <h2 style="margin-top: 1rem;">Examples:</h2>
+      <p>Do you want to check the species of the target?</p>
+      <div class="query-block">
+        <div class="query-line">| where Species == "robot"</div>
+        <div class="query-note"> Finds only characters who are robots</div>
+      
+        <div class="query-line">| where Hair contains "blue"</div>
+        <div class="query-note"> Includes characters with blue in their hair color</div>
+      
+        <div class="query-line">| where Accessory !contains "glasses"</div>
+        <div class="query-note"> Excludes anyone wearing glasses</div>
+      </div>
 
       <pre style="background-color: #001e2b; padding: 0.8rem; border-radius: 6px; font-family: 'Courier New', monospace;">
 Characters
