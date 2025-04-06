@@ -479,3 +479,4 @@ function createFilterAccordion() {
 
 
 window.addEventListener("DOMContentLoaded", createFilterAccordion);
+ 
