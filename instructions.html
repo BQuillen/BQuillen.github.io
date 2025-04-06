@@ -7,6 +7,86 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .instructions-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .instructions-column {
+      flex: 1 1 400px;
+      background: #073c5b;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .instructions-column h2 {
+      font-family: "Press Start 2P", cursive;
+      color: #ff6a1a;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .instructions-column p,
+    .instructions-column li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .instructions-column ul {
+      padding-left: 1.2rem;
+    }
+
+    .query-block {
+      background-color: #001e2b;
+      border-radius: 5px;
+      padding: 0.8rem;
+      font-family: "Courier New", monospace;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .query-line {
+      margin-bottom: 0.2rem;
+      color:#ff6a1a; 
+    }
+
+    .query-note {
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #c0c0c0;
+      margin-bottom: 0.6rem;
+      padding-left: 1rem;
+    }
+
+    .banner {
+  background-color: #ff6a1a;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin: 2rem auto; /* 👈 Centers it horizontally */
+  width: 50%;
+  max-width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+}
+
+code{
+    color:#ff6a1a;
+    font-weight: bold;
+}
+
+  </style>
 </head>
 <body>
   <nav class="main-navbar">
@@ -18,39 +98,45 @@
     </div>
   </nav>
 
-  <main>
-    <div class="banner">
-      <h1>📘 How to Play</h1>
-    </div>
-    <section style="max-width: 700px; text-align: left;" class="page-content">
-      <p>In <strong>KQ Who?</strong>, your mission is to identify the attacker by filtering out innocent characters using <strong>Kusto Query Language</strong> (KQL).</p>
+  <div class="banner" style="margin-top: 2rem;">
+    <h1>📘 How to Play</h1>
+  </div>
 
-      <h2 style="margin-top: 1rem;">Examples:</h2>
-      <h2 style="margin-top: 1rem;">Examples:</h2>
-      <p>Do you want to check the species of the target?</p>
+  <div class="instructions-wrapper">
+    <!-- Column 1: Rules & Tips -->
+    <div class="instructions-column">
+      <h2>📜 Rules & Tips</h2>
+      <p>Use KQL to eliminate characters who don’t match the attacker's profile. Every query helps narrow down the field!</p>
+      <ul>
+        <li><b><code>==</code> matches exact values</li>
+        <li><code>!=</code> excludes exact matches</li>
+        <li><code>contains</code> looks for parts of words</li>
+            <ul>
+                <li><i>like "glasses" inside the word "sunglasses"</i></li>
+            </ul>
+        <li><code>!contains</code> excludes parts of words</li>
+        <li><code>has</code> checks arrays for a value</li>
+      </ul>
+      <p>To win: <code>where Name == "Suspect Name"</code></p>
+    </div>
+
+    <!-- Column 2: Example Queries -->
+    <div class="instructions-column">
+      <h2>💡 Example Queries</h2>
       <div class="query-block">
         <div class="query-line">| where Species == "robot"</div>
         <div class="query-note"> Finds only characters who are robots</div>
-      
-        <div class="query-line">| where Hair contains "blue"</div>
-        <div class="query-note"> Includes characters with blue in their hair color</div>
-      
-        <div class="query-line">| where Accessory !contains "glasses"</div>
-        <div class="query-note"> Excludes anyone wearing glasses</div>
+
+        <div class="query-line">| where Accessory contains "drink"</div>
+        <div class="query-note"> Finds characters holding drinks</div>
+
+        <div class="query-line">| where ColorScheme has_any ["gray", "blue"]</div>
+        <div class="query-note"> Matches characters with either gray or blue colors</div>
+
+        <div class="query-line">| where SuspiciousActivity contains "phishing"</div>
+        <div class="query-note"> Targets shady behaviors involving phishing</div>
       </div>
-
-      <pre style="background-color: #001e2b; padding: 0.8rem; border-radius: 6px; font-family: 'Courier New', monospace;">
-Characters
-| where FilesDownloaded has "docx" and VisitedDomains contains "sketchydocs.io"
-      </pre>
-
-      <p>Once you think you've found the attacker, submit:</p>
-      <pre style="background-color: #001e2b; padding: 0.8rem; border-radius: 6px; font-family: 'Courier New', monospace;">
-where Name == "Attacker Name"
-      </pre>
-
-      <p>Use logic, patterns, and process-of-elimination to solve the mystery. 👨‍💻🕵️‍♀️</p>
-    </section>
-  </main>
+    </div>
+  </div>
 </body>
 </html>
