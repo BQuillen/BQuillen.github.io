@@ -815,7 +815,7 @@
   {
   "Name": "Juno Quibble",
   "Species": "raccoon",
-  "Hair": ["black", "white"],
+  "Hair": ["gray", "white"],
   "Accessory": ["bandana", "glasses", "drink"],
   "ColorScheme": ["gray", "blue"],
   "VisitedDomains": ["nocturnalnews.net", "midnightmunchies.org", "cryptopuzzle.fun"],
@@ -823,7 +823,7 @@
   "Hostname": "jun0qu1bbl3-laptop",
   "IP": "10.42.88.21",
   "LoginAccount": "jquibble@cryptofun.io",
-  "ProcessesRun": ["snackScraper.py", "midnightSync.exe", "decoyProtocol.sh"],
+  "ProcessesRun": ["snackScraper.py", "decoyProtocol.sh"],
   "SuspiciousActivity": "Automated login attempts from remote IPs during restricted hours",
   "Image": "images/juno_quibble.png"
 },
