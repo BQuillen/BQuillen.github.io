@@ -825,7 +825,7 @@
   "LoginAccount": "jquibble@cryptofun.io",
   "ProcessesRun": ["snackScraper.py", "midnightSync.exe", "decoyProtocol.sh"],
   "SuspiciousActivity": "Automated login attempts from remote IPs during restricted hours",
-  "Image": "juno_quibble.png"
+  "Image": "images/juno_quibble.png"
 },
   {
   "Name": "Nova Shrimpkin",
@@ -840,7 +840,7 @@
   "LoginAccount": "nshrimpkin",
   "ProcessesRun": ["spotify.exe", "chrome.exe"],
   "SuspiciousActivity": "downloaded fake music plugin",
-  "Image": "nova_shrimpkin.png"
+  "Image": "images/nova_shrimpkin.png"
 },
   {
   "Name": "Crumbly Tuff",
@@ -855,7 +855,7 @@
   "LoginAccount": "ctuff",
   "ProcessesRun": ["notepad.exe", "taskmgr.exe"],
   "SuspiciousActivity": "ran unsigned EXE from sketchydocs",
-  "Image": "crumbly_tuff.png"
+  "Image": "images/crumbly_tuff.png"
 },
   {
   "Name": "Delta Vex",
@@ -870,7 +870,7 @@
   "LoginAccount": "dvex",
   "ProcessesRun": ["powershell.exe", "explorer.exe"],
   "SuspiciousActivity": "used Powershell to create hidden user",
-  "Image": "delta_vex.png"
+  "Image": "images/delta_vex.png"
 },
   {
   "Name": "Rizzo Coil",
@@ -885,7 +885,7 @@
   "LoginAccount": "rcoil",
   "ProcessesRun": ["vpn.exe", "browser.exe"],
   "SuspiciousActivity": "spoofed MAC address and logged in anonymously",
-  "Image": "rizzo_coil.png"
+  "Image": "images/rizzo_coil.png"
 },
   {
   "Name": "Echo Blink",
@@ -900,7 +900,7 @@
   "LoginAccount": "eblink",
   "ProcessesRun": ["phantom.exe", "stealth.exe"],
   "SuspiciousActivity": "attempted to hide network presence using spoof tools",
-  "Image": "echo_blink.png"
+  "Image": "images/echo_blink.png"
 },
   {
   "Name": "Tinker Bramble",
@@ -915,7 +915,7 @@
   "LoginAccount": "tbramble",
   "ProcessesRun": ["7zip.exe", "explorer.exe"],
   "SuspiciousActivity": "opened zip file with embedded executable",
-  "Image": "tinker_bramble.png"
+  "Image": "images/tinker_bramble.png"
 },
  {
   "Name": "Patch Vector",
@@ -930,7 +930,7 @@
   "LoginAccount": "pvector",
   "ProcessesRun": ["hookdriver.exe", "mapscanner.exe"],
   "SuspiciousActivity": "deployed rogue update masking hidden process",
-  "Image": "patch_vector.png"
+  "Image": "images/patch_vector.png"
 }
 
 
