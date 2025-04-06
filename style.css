@@ -399,3 +399,26 @@ body {
   margin-top: 0.5rem;
   font-size: 0.85rem;
 }
+
+.query-block {
+  background-color: #001e2b;
+  border-radius: 5px;
+  padding: 0.8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.query-line {
+  margin-bottom: 0.2rem;
+}
+
+.query-note {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #c0c0c0;
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+}
+
