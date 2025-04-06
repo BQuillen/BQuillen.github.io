@@ -917,7 +917,22 @@
   "SuspiciousActivity": "opened zip file with embedded executable",
   "Image": "tinker_bramble.png"
 },
- 
+ {
+  "Name": "Patch Vector",
+  "Species": "robot",
+  "Hair": "none",
+  "Accessory": ["hat", "eyepatch", "hook", "sword", "belt", "earring", "bracelet"],
+  "ColorScheme": ["gray", "blue"],
+  "VisitedDomains": ["bootybyte.com", "piratebay.com", "patchesforpirates.io"],
+  "FilesDownloaded": ["encrypted_lootmap.dat", "HookDriverUpdate.exe"],
+  "Hostname": "v3ct0r-computer",
+  "IP": "10.0.42.88",
+  "LoginAccount": "pvector",
+  "ProcessesRun": ["hookdriver.exe", "mapscanner.exe"],
+  "SuspiciousActivity": "deployed rogue update masking hidden process",
+  "Image": "patch_vector.png"
+}
+
 
 
 
