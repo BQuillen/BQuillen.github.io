@@ -931,7 +931,23 @@
   "ProcessesRun": ["hookdriver.exe", "mapscanner.exe"],
   "SuspiciousActivity": "deployed rogue update masking hidden process",
   "Image": "images/patch_vector.png"
+},
+  {
+  "Name": "Emluh Quicken",
+  "Species": "human",
+  "Hair": ["brown"],
+  "Accessory": ["earbuds", "headphones", "phone", "purse", "necklace", "bag", "earrings", "bracelet"],
+  "ColorScheme": ["gray", "green"],
+  "VisitedDomains": ["dumbshow.io", "puzzleforge.io"],
+  "FilesDownloaded": ["recipes.zip", "lesson_planz.docx"],
+  "Hostname": "3m7uh-laptop",
+  "IP": "192.168.33.77",
+  "LoginAccount": "sillyquicken",
+  "ProcessesRun": ["spotify.exe", "weatherSync.js"],
+  "SuspiciousActivity": "Downloaded bootleg episodes of a bad reality show",
+  "Image": "images/emluh_quicken.png"
 }
+
 
 
 
