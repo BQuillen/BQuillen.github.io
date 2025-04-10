@@ -77,7 +77,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-h2 {
+h2, h3 {
     text-align: center;
 }
 
@@ -86,6 +86,9 @@ code{
     font-weight: bold;
 }
 
+li{
+    list-style-type: none;
+}
   </style>
 </head>
 <body>
@@ -105,19 +108,35 @@ code{
   <div class="instructions-wrapper">
     <!-- Column 1: Rules & Tips -->
     <div class="instructions-column">
-      <h2>📜 Rules & Tips</h2>
-      <p>Use KQL to eliminate characters who don’t match the attacker's profile. Every query helps narrow down the field!</p>
-      <ul>
-        <li><b><code>==</code> matches exact values</li>
-        <li><code>!=</code> excludes exact matches</li>
-        <li><code>contains</code> looks for parts of words</li>
-            <ul>
-                <li><i>like "glasses" inside the word "sunglasses"</i></li>
-            </ul>
-        <li><code>!contains</code> excludes parts of words</li>
-        <li><code>has</code> checks arrays for a value</li>
-      </ul>
-      <p>To win: <code>where Name == "Suspect Name"</code></p>
+      <h2>🔍 How to Play KQ Who?</h2>
+      
+        
+<p>This isn't your average guessing game — it's cyber detective work! In Guess QL, you'll use real KQL (Kusto Query Language) commands to filter out innocent digital citizens and identify the hidden attacker.</p>
+<br><hr>
+<h3>🎯 Objective</h3>
+<p><b style="color: #ff6a1a;">Your mission:</b> Find the attacker hidden among quirky characters by using smart KQL queries. Use the data, track their activity, and trust your logic. But be careful — each query counts!</p><br>
+<hr>
+<h3>🧠 Key Rules</h3>
+<ul>
+<li>🧑‍💻 Queries focus on one filter at a time — no combo queries. Keep it simple and surgical.</li>
+<br>
+<li>❌ If your query doesn’t match the attacker, you’ll receive an error and nothing happens.</li>
+<br>
+<li>✅ If your query does match the attacker, the game filters out characters who don’t match — narrowing your grid.</li>
+<br>
+<li>🕵️ When only one character is left — or when you're confident — guess the attacker. Choose wisely!</li>
+</ul>
+<br><hr>
+
+<h3>🎮 Game Modes</h3>
+<p>🧩 <b style="color: #ff6a1a;">Normal Mode</b> - Use both visual traits and activity logs to solve the case. Classic detective mode!</p>
+<p>🖼️ <b style="color: #ff6a1a;">Image Only</b> -	Only query visual traits (e.g., Hair, Species, Accessory).</p>
+<p>🗃️ <b style="color: #ff6a1a;">Data Only</b> - Only query log data (e.g., FilesDownloaded, VisitedDomains, IP).</p>
+<p>💬 <b style="color: #ff6a1a;">Prompt Challenge</b> - Focus in on required filters and build your queries around those.</p>
+
+<br><hr>
+<h3>🎓 Why It’s Cool</h3>
+<p>You’re not just playing — you're learning real-world skills. KQL is a powerful tool used by cybersecurity analysts to sift through massive data logs and catch digital baddies. By using it in <b style="color: #ff6a1a;">KQ Who?</b>, you’re training to think like a pro.</p>
     </div>
 
     <!-- Column 2: Example Queries -->
@@ -135,6 +154,23 @@ code{
 
         <div class="query-line">| where SuspiciousActivity contains "phishing"</div>
         <div class="query-note"> Targets shady behaviors involving phishing</div>
+
+        <div class="query-line">| where VisitedDomains contains "sketchydocs.io"</div>
+        <div class="query-note">Identifies websites visited by the attacker</div>
+      </div>
+      <div class="query-block">
+        <p>Use KQL to eliminate characters who don’t match the attacker's profile. Every query helps narrow down the field!</p>
+      <ul>
+        <li><b><code>==</code> matches exact values</li>
+        <li><code>!=</code> excludes exact matches</li>
+        <li><code>contains</code> looks for parts of words</li>
+            <ul>
+                <li><i>like "glasses" inside the word "sunglasses"</i></li>
+            </ul>
+        <li><code>!contains</code> excludes parts of words</li>
+        <li><code>has</code> checks arrays for a value</li>
+      </ul>
+      <p>To win: <code>where Name == "Suspect Name"</code></p>
       </div>
     </div>
   </div>
