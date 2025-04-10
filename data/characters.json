@@ -975,7 +975,7 @@
   "LoginAccount": "solle01",
   "ProcessesRun": ["netghost.exe", "pingloop.ps1"],
   "SuspiciousActivity": "downloaded bootleg bio study guides",
-  "Image": "soleil_le.png"
+  "Image": "images/soleil_le.png"
 },
 {
   "Name": "Sam Do",
