@@ -946,7 +946,56 @@
   "ProcessesRun": ["spotify.exe", "weatherSync.js"],
   "SuspiciousActivity": "Downloaded bootleg episodes of a bad reality show",
   "Image": "images/emluh_quicken.png"
+},
+  {
+  "Name": "Bobby Ice",
+  "Species": "dog", 
+  "Hair": "brown",
+  "Accessory": ["glasses", "hoodie"],
+  "ColorScheme": ["brown", "green"], 
+  "VisitedDomains": ["cheatGPT.com", "onlycrayons.io", "powderpuff.net"],
+  "FilesDownloaded": ["football.png", "icecube.zip"],
+  "Hostname": "8088y-laptop",
+  "IP": "635.93.83.9",
+  "LoginAccount": "coldbobby",
+  "ProcessesRun": ["7zip.exe", "cheatgpt.exe"],
+  "SuspiciousActivity": "saved passwords on shared computer",
+  "Image": "images/bobby_ice.png"
+},
+{
+  "Name": "Soleil Le",
+  "Species": "human",
+  "Hair": "red",
+  "Accessory": ["glasses"],
+  "ColorScheme": ["red", "black"],
+  "VisitedDomains": ["lecorpes.org", "horrorreads.com"],
+  "FilesDownloaded": ["brushes.zip", "lolwalkthrough.pdf"],
+  "Hostname": "507317-device",
+  "IP": "10.77.42.6",
+  "LoginAccount": "solle01",
+  "ProcessesRun": ["netghost.exe", "pingloop.ps1"],
+  "SuspiciousActivity": "downloaded bootleg bio study guides",
+  "Image": "soleil_le.png"
+},
+{
+  "Name": "Sam Do",
+  "Species": "dog",
+  "Hair": "brown",
+  "Accessory": ["computer", "desktop", "bandana"],
+  "ColorScheme": ["brown", "red"],
+  "VisitedDomains": ["samwithablog.org"],
+  "FilesDownloaded": ["howtotakeovertheworld.doc"],
+  "Hostname": "54md0-laptop",
+  "IP": "192.168.88.5",
+  "LoginAccount": "thedawg03",
+  "ProcessesRun": ["extraenergy.rar", "goodboy.mp3"],
+  "SuspiciousActivity": "tried to bypass firewall with puppy-themed macro",
+  "Image": "images/sam_do.png"
 }
+
+
+
+
 
 
 
