@@ -639,7 +639,7 @@
       "Image": "images/benny_bitbark.png"
     },
     {
-      "Name": "Ziggy Packettail",
+     "Name": "Valy Wigglebuns",
       "Species": "Dog",
       "Hair": ["black", "white"],
       "Accessory": ["jacket", "necklace", "headphones", "tablet"],
@@ -648,7 +648,7 @@
       "FilesDownloaded": ["rogue_ap_scanner.apk"],
       "Hostname": "mobile-c0r61n3t",
       "IP": "10.0.19.88",
-      "LoginAccount": "zpacket",
+      "LoginAccount": "valkyriebuns",
       "ProcessesRun": ["netmap.exe", "glowpad.js"],
       "SuspiciousActivity": [
         "ran unknown APK on school tablet",
@@ -991,7 +991,23 @@
   "ProcessesRun": ["extraenergy.rar", "goodboy.mp3"],
   "SuspiciousActivity": "tried to bypass firewall with puppy-themed macro",
   "Image": "images/sam_do.png"
+},
+  {
+  "Name": "Hazel Hoots",
+  "Species": "bird",
+  "Hair": ["pink"],
+  "Accessory": ["glasses", "necklace", "tablet"],
+  "ColorScheme": ["pink", "blue"],
+  "VisitedDomains": ["fungames.com", "hootsketch.io"],
+  "FilesDownloaded": ["owlsketch_pro.dmg", "cuteanimals.png"],
+  "Hostname": "h4237-device",
+  "IP": "10.54.22.108",
+  "LoginAccount": "HootyOake",
+  "ProcessesRun": ["procreate.exe", "animalcrossing.ps1"],
+  "SuspiciousActivity": "used steganography to hide data inside a .png drawing",
+  "Image": "hazel_hoots.png"
 }
+
 
 
 
