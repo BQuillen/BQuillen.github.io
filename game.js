@@ -440,7 +440,7 @@ window.onload = () => {
 }
 
 const filterData = {
-  Species: ["human", "lizard", "bird", "raccoon", "monster", "zombie", "cat", "dog", "robot", "crab", "ferret"],
+  Species: ["human", "lizard", "bird", "raccoon", "monster", "cat", "dog", "robot", "crab", "ferret"],
   Hair: ["black", "white", "brown", "blue", "green", "pink", "etc."],
   Accessory: ["glasses", "backpack", "drink", "food", "headphones", "watch", "etc."],
   ColorScheme: ["black", "white", "gray", "red", "blue", "orange", "etc."],
