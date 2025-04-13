@@ -35,7 +35,6 @@
   "ProcessesRun": [
     "tinykeylogger.exe",
     "chrome.exe",
-    "notepad.exe"
   ],
   "SuspiciousActivity": "ran tinykeylogger.exe after connecting to sketchydocs.io",
   "Image": "images/ollie_james.png"
