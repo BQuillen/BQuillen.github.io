@@ -356,7 +356,8 @@ function renderCharacters(all, visible) {
          <strong>Processes:</strong>
             <ul style="margin: 0 0 0.3rem; padding-left: 1rem;">
             ${char.ProcessesRun?.map(p => `<li>${p}</li>`).join("")}
-            </ul>
+        </ul>
+
           <span style="display:none"><strong>Species:</strong> ${char.Species}</span>
           <span style="display:none"><strong>Hair:</strong> ${char.Hair}</span>
           <span style="display:none"><strong>Glasses:</strong> ${char.Glasses}</span>
