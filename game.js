@@ -227,35 +227,34 @@ function runQuery() {
 
   
   
-  function evaluateQuery(query, char) {
-    if (!query.toLowerCase().trim().startsWith("where")) return true;
-    const logic = query.trim().slice(5).trim();
-  
-    try {
-      const filterFunc = new Function("char", `
-        const val = key => {
-          const v = char[key];
-          return typeof v === 'string' ? v.toLowerCase() : v;
-        };
-        const includesInsensitive = (arr, str) =>
-          (arr || []).some(item => (item || '').toLowerCase() === str.toLowerCase());
-  
-        return ${logic
-          .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
-          .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
-          .replace(/(\w+)\s+has\s+"([^"]+)"/gi, 'includesInsensitive(char.$1, "$2")')
-          .replace(/(\w+)\s+has_any\s+\[(.*?)\]/gi, '(($2).split(",").map(s => s.trim().replaceAll("\\"","")).some(v => includesInsensitive(char.$1, v)))')
-          .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
-          .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
-          .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
-        };
-      `);
-      return filterFunc(char);
-    } catch (e) {
-      console.warn("Query evaluation error:", e);
-      return true;
-    }
+function evaluateQuery(query, char) {
+  if (!query.toLowerCase().trim().startsWith("where")) return true;
+  const logic = query.trim().slice(5).trim();
+
+  try {
+    const filterFunc = new Function("char", `
+      const val = key => {
+        const v = char[key];
+        return typeof v === 'string' ? v.toLowerCase() : v;
+      };
+
+      return ${logic
+        .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
+        .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
+        .replace(/(\w+)\s+has\s+"([^"]+)"/gi, '(Array.isArray(char.$1) ? char.$1.includes("$2") : char.$1 === "$2")')
+        .replace(/(\w+)\s+has_any\s+"([^"]+)"/gi, '(Array.isArray(char.$1) ? "$2".split(",").map(s => s.trim()).some(val => char.$1.includes(val)) : false)')
+        .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
+        .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
+        .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
+      };
+    `);
+    return filterFunc(char);
+  } catch (e) {
+    console.warn("Query evaluation error:", e);
+    return true;
   }
+}
+
   
 
   function updateQueryLog() {
@@ -282,37 +281,36 @@ function runQuery() {
   
   
 
-function queryCharacters(query) {
-  if (!query.trim().toLowerCase().startsWith("where")) return characters;
-  const logic = query.trim().slice(5).trim();
-
-  return characters.filter(char => {
-    try {
-      const filterFunc = new Function("char", `
-        const val = key => {
-          const v = char[key];
-          return typeof v === 'string' ? v.toLowerCase() : v;
+  function queryCharacters(query) {
+    if (!query.trim().toLowerCase().startsWith("where")) return characters;
+    const logic = query.trim().slice(5).trim();
+  
+    return characters.filter(char => {
+      try {
+        const filterFunc = new Function("char", `
+          const val = key => {
+            const v = char[key];
+            return typeof v === 'string' ? v.toLowerCase() : v;
+          };
+  
+          return ${logic
+            .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
+            .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
+            .replace(/(\w+)\s+has\s+"([^"]+)"/gi, '(Array.isArray(char.$1) ? char.$1.includes("$2") : char.$1 === "$2")')
+            .replace(/(\w+)\s+has_any\s+"([^"]+)"/gi, '(Array.isArray(char.$1) ? "$2".split(",").map(s => s.trim()).some(val => char.$1.includes(val)) : false)')
+            .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
+            .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
+            .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
         };
-        const includesInsensitive = (arr, str) =>
-          (arr || []).some(item => (item || '').toLowerCase() === str.toLowerCase());
-
-        return ${logic
-          .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
-          .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
-          .replace(/(\w+)\s+has\s+"([^"]+)"/gi, 'includesInsensitive(char.$1, "$2")')
-          .replace(/(\w+)\s+has_any\s+\[(.*?)\]/gi, '(($2).split(",").map(s => s.trim().replaceAll("\\"","")).some(v => includesInsensitive(char.$1, v)))')
-          .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
-          .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
-          .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
-        };
-      `);
-      return filterFunc(char);
-    } catch (e) {
-      console.error("Query parsing error:", e);
-      return true;
-    }
-  });
-}
+        `);
+        return filterFunc(char);
+      } catch (e) {
+        console.error("Query parsing error:", e);
+        return true;
+      }
+    });
+  }
+  
 
 function renderCharacters(all, visible) {
     const grid = document.getElementById("characters");
@@ -371,7 +369,7 @@ function renderCharacters(all, visible) {
   }
   
 
-function checkQueryAgainstTarget(query) {
+  function checkQueryAgainstTarget(query) {
     const logic = query.trim().slice(5).trim();
     try {
       const evalTarget = new Function("char", `
@@ -379,25 +377,24 @@ function checkQueryAgainstTarget(query) {
           const v = char[key];
           return typeof v === 'string' ? v.toLowerCase() : v;
         };
-        const includesInsensitive = (arr, str) =>
-          (arr || []).some(item => (item || '').toLowerCase() === str.toLowerCase());
   
         return ${logic
           .replace(/(\w+)\s+contains\s+"([^"]+)"/gi, 'val("$1").includes("$2".toLowerCase())')
           .replace(/(\w+)\s+!contains\s+"([^"]+)"/gi, '!val("$1").includes("$2".toLowerCase())')
-          .replace(/(\w+)\s+has\s+"([^"]+)"/gi, 'includesInsensitive(char.$1, "$2")')
-          .replace(/(\w+)\s+has_any\s+\[(.*?)\]/gi, '(($2).split(",").map(s => s.trim().replaceAll("\\"","")).some(v => includesInsensitive(char.$1, v)))')
+          .replace(/(\w+)\s+has\s+"([^"]+)"/gi, '(Array.isArray(char.$1) ? char.$1.includes("$2") : char.$1 === "$2")')
+          .replace(/(\w+)\s+has_any\s+"([^"]+)"/gi, '(Array.isArray(char.$1) ? "$2".split(",").map(s => s.trim()).some(val => char.$1.includes(val)) : false)')
           .replace(/(\w+)\s+==\s+"([^"]+)"/gi, 'val("$1") === "$2".toLowerCase()')
           .replace(/(\w+)\s+!=\s+"([^"]+)"/gi, 'val("$1") !== "$2".toLowerCase()')
           .replace(/(\w+)\s+==\s+(true|false)/gi, 'char.$1 === $2')
       };
       `);
-      return evalTarget(target); // ✅ Return result of test on target
+      return evalTarget(target);
     } catch (e) {
       console.warn("Unable to evaluate query against target.", e);
       return false;
     }
   }
+  
   ;
 
 
