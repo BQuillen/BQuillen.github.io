@@ -38,7 +38,7 @@
     "notepad.exe"
   ],
   "SuspiciousActivity": "ran tinykeylogger.exe after connecting to sketchydocs.io",
-  "Image": "ollie_james.png"
+  "Image": "images/ollie_james.png"
 },
 
   {
@@ -1006,7 +1006,7 @@
     "notepad.exe"
   ],
   "SuspiciousActivity": "ran tinykeylogger.exe after connecting to sketchydocs.io",
-  "Image": "otter_fluff.png"
+  "Image": "images/otter_fluff.png"
 }
 
 
