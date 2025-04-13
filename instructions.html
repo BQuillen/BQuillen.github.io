@@ -157,6 +157,9 @@ li{
 
         <div class="query-line">| where VisitedDomains contains "sketchydocs.io"</div>
         <div class="query-note">Identifies websites visited by the attacker</div>
+
+        <div class="query-line">| where ColorScheme has_any "black, white, gray"</div>
+        <div class="query-note">Searches characters for any of the three colors in their main scheme</div>
       </div>
       <div class="query-block">
         <p>Use KQL to eliminate characters who don’t match the attacker's profile. Every query helps narrow down the field!</p>
