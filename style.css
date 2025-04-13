@@ -162,6 +162,9 @@ body {
     transition: all 0.2s ease-in-out;
     color: #000;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* stronger shadow */
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;  
   }
   
   
@@ -422,8 +425,36 @@ body {
   padding-left: 1rem;
 }
 
+.instruction-panel {
+  background: #073c5b;
+  color: #ffffff;
+  font-size: 0.85rem;
+  padding: 1.2rem;
+  box-sizing: border-box;
+}
+
+.instruction-panel h2 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #ff6a1a;
+}
+
+.instruction-list {
+  padding-left: 1rem;
+  list-style: square;
+}
+
+.instruction-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #042f4b;
+  color: white;
+  overflow-y: auto;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 .character-card div {
   line-height: 1.4;
   margin-bottom: 0.2rem;
 }
-
