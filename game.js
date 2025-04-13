@@ -349,10 +349,14 @@ function renderCharacters(all, visible) {
           <strong>Hostname:</strong> ${char.Hostname}<br/>
           <strong>IP:</strong> ${char.IP}<br/>
           <strong>Login:</strong> ${char.LoginAccount}<br/>
-          <strong>Visited:</strong> ${char.VisitedDomains?.join(", ")}<br/>
+          <strong>Visited:</strong>
+          <ul style="margin: 0; padding-left: 1rem;">${char.VisitedDomains?.map(d => `<li>${d}</li>`).join("")}</ul>
           <strong>Files:</strong> ${char.FilesDownloaded?.join(", ")}<br/>
           <strong>Activity:</strong> ${char.SuspiciousActivity}<br/>
-          <strong>Processes:</strong> ${char.ProcessesRun}<br/>
+         <strong>Processes:</strong>
+            <ul style="margin: 0 0 0.3rem; padding-left: 1rem;">
+            ${char.ProcessesRun?.map(p => `<li>${p}</li>`).join("")}
+            </ul>
           <span style="display:none"><strong>Species:</strong> ${char.Species}</span>
           <span style="display:none"><strong>Hair:</strong> ${char.Hair}</span>
           <span style="display:none"><strong>Glasses:</strong> ${char.Glasses}</span>
