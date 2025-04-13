@@ -15,32 +15,6 @@
     "Image": "images/rickyraccoon.png"
   },
   {
-  "Name": "Ollie James",
-  "Species": "human",
-  "Hair": "blonde",
-  "Accessory": ["pacifier", "laptop"],
-  "ColorScheme": ["white", "orange"],
-  "VisitedDomains": [
-    "mathgeniusbaby.org",
-    "babyforums.com",
-    "sketchydocs.io"
-  ],
-  "FilesDownloaded": [
-    "weird_baby_formula_recipe.pdf",
-    "unauthorized_access_guide.docx"
-  ],
-  "Hostname": "07713-laptop",
-  "IP": "10.8.42.99",
-  "LoginAccount": "ollie.james",
-  "ProcessesRun": [
-    "tinykeylogger.exe",
-    "chrome.exe",
-  ],
-  "SuspiciousActivity": "ran tinykeylogger.exe after connecting to sketchydocs.io",
-  "Image": "images/ollie_james.png"
-},
-
-  {
     "Name": "Dexter Donut",
     "Species": "food",
     "Hair": "none",
@@ -70,6 +44,22 @@
     "SuspiciousActivity": ["downloaded cheat tool"],
     "Image": "images/lunameowskers.png"
   },
+  {
+    "Name": "Zara Zombini",
+    "Species": "Zombie",
+    "Hair": "green",
+    "Accessory": ["bracelet", "hat", "necklace", "earring"],
+    "ColorScheme": ["gray", "green"],
+    "VisitedDomains": ["brainhungry.org"],
+    "FilesDownloaded": ["malware_payload.doc"],
+    "Hostname": "und34d-desktop1",
+    "IP": "10.0.3.6",
+    "LoginAccount": "zbrain",
+    "ProcessesRun": ["cmd.exe"],
+    "SuspiciousActivity": ["sent phishing emails"],
+    "Image": "images/zarazombie.png"
+  },
+
 
   {
     "Name": "Gloop Goozy",
@@ -414,7 +404,24 @@
       ],
       "Image": "images/nyx_whiskerbyte.png"
     },
-    
+    {
+      "Name": "Zero Gravely",
+      "Species": "Zombie",
+      "Hair": "black",
+      "Accessory": ["jacket", "cyber eye", "laptop", "computer", "necklace", "ring"],
+      "ColorScheme": ["green", "brown"],
+      "VisitedDomains": ["darkresurrect.org", "bytebitten.net"],
+      "FilesDownloaded": ["undead_crypter.bat"],
+      "Hostname": "und34d-device",
+      "IP": "10.0.6.66",
+      "LoginAccount": "zgrave",
+      "ProcessesRun": ["regedit.exe", "autorun.exe"],
+      "SuspiciousActivity": [
+        "attempted registry overwrite during boot",
+        "sent malware beacon via zombie mesh protocol"
+      ],
+      "Image": "images/zero_gravely.png"
+    },
     {
       "Name": "Cyra Nighthatch",
       "Species": "bird",
@@ -541,7 +548,24 @@
       ],
       "Image": "images/pixel_redflare.png"
     },
-    
+    {
+      "Name": "Milo Breadcrumb",
+      "Species": "Zombie",
+      "Hair": "none",
+      "Accessory": ["jacket", "smartphone", "pretzel", "phone"],
+      "ColorScheme": ["green", "gray"],
+      "VisitedDomains": ["snackstagram.org", "zombiecloud.io"],
+      "FilesDownloaded": ["crunchycredentials.png"],
+      "Hostname": "pr3t237-mobile",
+      "IP": "10.0.15.66",
+      "LoginAccount": "mbreadcrumb",
+      "ProcessesRun": ["camera.exe", "uploadtool.exe"],
+      "SuspiciousActivity": [
+        "uploaded screenshot containing password hint",
+        "synced login session to public snack Wi-Fi"
+      ],
+      "Image": "images/milo_breadcrumb.png"
+    },
     {
       "Name": "Nico Nibbletail",
       "Species": "Lizard",
@@ -615,7 +639,7 @@
       "Image": "images/benny_bitbark.png"
     },
     {
-     "Name": "Valy Wigglebuns",
+      "Name": "Valy Wigglebuns",
       "Species": "Dog",
       "Hair": ["black", "white"],
       "Accessory": ["jacket", "necklace", "headphones", "tablet"],
@@ -741,7 +765,7 @@
     },
     {
       "Name": "Zelle Brainstorm",
-      "Species": "monster",
+      "Species": "Zombie",
       "Hair": "gray",
       "Accessory": ["food", "phone", "earring", "necklace"],
       "ColorScheme": ["green", "black"],
@@ -799,7 +823,7 @@
   "Hostname": "jun0qu1bbl3-laptop",
   "IP": "10.42.88.21",
   "LoginAccount": "jquibble@cryptofun.io",
-  "ProcessesRun": ["snackScraper.py", "decoyProtocol.sh"],
+  "ProcessesRun": ["snackScraper.py", "midnightSync.exe"],
   "SuspiciousActivity": "Automated login attempts from remote IPs during restricted hours",
   "Image": "images/juno_quibble.png"
 },
@@ -908,22 +932,7 @@
   "SuspiciousActivity": "deployed rogue update masking hidden process",
   "Image": "images/patch_vector.png"
 },
-  {
-  "Name": "Emluh Quicken",
-  "Species": "human",
-  "Hair": ["brown"],
-  "Accessory": ["earbuds", "headphones", "phone", "purse", "necklace", "bag", "earrings", "bracelet"],
-  "ColorScheme": ["gray", "green"],
-  "VisitedDomains": ["dumbshow.io", "puzzleforge.io"],
-  "FilesDownloaded": ["recipes.zip", "lesson_planz.docx"],
-  "Hostname": "3m7uh-laptop",
-  "IP": "192.168.33.77",
-  "LoginAccount": "sillyquicken",
-  "ProcessesRun": ["spotify.exe", "weatherSync.js"],
-  "SuspiciousActivity": "Downloaded bootleg episodes of a bad reality show",
-  "Image": "images/emluh_quicken.png"
-},
-  {
+{
   "Name": "Bobby Ice",
   "Species": "dog", 
   "Hair": "brown",
@@ -968,7 +977,22 @@
   "SuspiciousActivity": "tried to bypass firewall with puppy-themed macro",
   "Image": "images/sam_do.png"
 },
-  {
+{
+  "Name": "Emluh Quicken",
+  "Species": "human",
+  "Hair": ["brown"],
+  "Accessory": ["earbuds", "headphones", "phone", "purse", "necklace", "bag", "earrings", "bracelet"],
+  "ColorScheme": ["gray", "green"],
+  "VisitedDomains": ["dumbshow.io", "puzzleforge.io"],
+  "FilesDownloaded": ["recipes.zip", "lesson_planz.docx"],
+  "Hostname": "3m7uh-laptop",
+  "IP": "192.168.33.77",
+  "LoginAccount": "sillyquicken",
+  "ProcessesRun": ["spotify.exe", "weatherSync.js"],
+  "SuspiciousActivity": "Downloaded bootleg episodes of a bad reality show",
+  "Image": "images/emluh_quicken.png"
+},
+{
   "Name": "Hazel Hoots",
   "Species": "bird",
   "Hair": ["pink"],
@@ -983,11 +1007,37 @@
   "SuspiciousActivity": "used steganography to hide data inside a .png drawing",
   "Image": "images/hazel_hoots.png"
 },
-  {
+{
+  "Name": "Ollie James",
+  "Species": "human",
+  "Hair": "blonde",
+  "Accessory": ["pacifier", "laptop"],
+  "ColorScheme": ["white", "orange"],
+  "VisitedDomains": [
+    "mathgeniusbaby.org",
+    "babyforums.com",
+    "sketchydocs.io"
+  ],
+  "FilesDownloaded": [
+    "weird_baby_formula_recipe.pdf",
+    "unauthorized_access_guide.docx"
+  ],
+  "Hostname": "07713-laptop",
+  "IP": "10.8.42.99",
+  "LoginAccount": "ollie.james",
+  "ProcessesRun": [
+    "tinykeylogger.exe",
+    "chrome.exe",
+    "notepad.exe"
+  ],
+  "SuspiciousActivity": "ran tinykeylogger.exe after connecting to sketchydocs.io",
+  "Image": "images/ollie_james.png"
+},
+{
   "Name": "Otter Fluff",
   "Species": "ferret",
   "Hair": "orange",
-  "Accessory": ["laptop", "hat", "skateboard", "headphones"],
+  "Accessory": ["laptop", "hat", "headphones", "skateboard"],
   "ColorScheme": ["blue", "orange"],
   "VisitedDomains": [
     "rocksforfun.org",
@@ -1008,4 +1058,9 @@
   "Image": "images/otter_fluff.png"
 }
 
-  ]
+
+
+
+
+
+]
