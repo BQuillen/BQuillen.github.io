@@ -15,6 +15,33 @@
     "Image": "images/rickyraccoon.png"
   },
   {
+  "Name": "Ollie James",
+  "Species": "human",
+  "Hair": "blonde",
+  "Accessory": ["pacifier", "laptop"],
+  "ColorScheme": ["white", "orange"],
+  "VisitedDomains": [
+    "mathgeniusbaby.org",
+    "babyforums.com",
+    "sketchydocs.io"
+  ],
+  "FilesDownloaded": [
+    "weird_baby_formula_recipe.pdf",
+    "unauthorized_access_guide.docx"
+  ],
+  "Hostname": "07713-laptop",
+  "IP": "10.8.42.99",
+  "LoginAccount": "ollie.james",
+  "ProcessesRun": [
+    "tinykeylogger.exe",
+    "chrome.exe",
+    "notepad.exe"
+  ],
+  "SuspiciousActivity": "ran tinykeylogger.exe after connecting to sketchydocs.io",
+  "Image": "ollie_james.png"
+},
+
+  {
     "Name": "Dexter Donut",
     "Species": "food",
     "Hair": "none",
@@ -956,7 +983,32 @@
   "ProcessesRun": ["procreate.exe", "animalcrossing.ps1"],
   "SuspiciousActivity": "used steganography to hide data inside a .png drawing",
   "Image": "images/hazel_hoots.png"
+},
+  {
+  "Name": "Otter Fluff",
+  "Species": "ferret",
+  "Hair": "orange",
+  "Accessory": ["laptop", "hat", "skateboard", "headphones"],
+  "ColorScheme": ["blue", "orange"],
+  "VisitedDomains": [
+    "rocksforfun.org",
+    "skaterdater.com"
+  ],
+  "FilesDownloaded": [
+    "clamsclamsclams.pdf",
+    "IwishIwasanotter.docx"
+  ],
+  "Hostname": "0tt3r-laptop",
+  "IP": "10.8.42.99",
+  "LoginAccount": "fluffsforfun",
+  "ProcessesRun": [
+    "chrome.exe",
+    "notepad.exe"
+  ],
+  "SuspiciousActivity": "ran tinykeylogger.exe after connecting to sketchydocs.io",
+  "Image": "otter_fluff.png"
 }
+
 
 
 
